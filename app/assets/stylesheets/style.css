@@ -1,0 +1,53 @@
+/* ヘッダー */
+header {
+  height: 73px;
+  display: flex;
+  align-items: center;
+  background-image: radial-gradient(rgb(89, 89, 89), rgb(145, 145, 145));
+}
+
+.title {
+  font-family: 'Vollkorn', serif;
+  font-size: 35px;
+  padding-left: 30px;
+  background: linear-gradient(180deg, #c0c0c0 0%, #d3d3d3 33%, #e0e0e0 62%, #d3d3d3 83%, #c0c0c0 100%);
+  background: -webkit-linear-gradient(90deg, #c0c0c0 0%, #d3d3d3 33%, #e0e0e0 62%, #d3d3d3 83%, #c0c0c0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ボディー */
+.first-view {
+  background-color: white;
+  display: flex;
+  align-items: center; 
+  justify-content: center; 
+  height: 100vh; ビューポートの高さいっぱいに広げる
+}
+
+
+.cupple {
+  animation-name:fadeInAnime;
+  animation-duration:8s;
+  animation-fill-mode:forwards;
+  opacity:0;
+}
+
+@keyframes fadeInAnime{
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* フッター */
+footer {
+  height: 30px;
+  background-color: #f0f0f0;
+  text-align: center;
+  color: black;
+  padding: 15px 15px ;
+}
