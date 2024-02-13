@@ -1,66 +1,13 @@
-<%= render "shared/header" %>
+<%= render partial: "shared/header" %>
 
-<main>
-  <style>
-    main {
-      margin: 0;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-    }
-
-    .square-container {
-      position: relative;
-    }
-
-    .square {
-      width: 100px; /* 正方形のサイズを変更 */
-      height: 100px; /* 正方形のサイズを変更 */
-      border: 3px solid #000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 25px;
-      font-family: serif;
-    }
-    
-  </style>
-  <div class="square-container" id="squareContainer"></div>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const squareSize = 100; // 正方形のサイズ
-      const spacing = 80; // 正方形間の間隔
-      const container = document.getElementById('squareContainer');
-
-      // アルファベットを生成する関数
-      function generateAlphabet(index) {
-        return String.fromCharCode(65 + index);
-      }
-
-      // 正方形を生成する関数
-      function createSquare(x, y, alphabet) {
-        const square = document.createElement('div');
-        square.className = 'square';
-        square.textContent = alphabet;
-        square.style.position = 'absolute';
-        square.style.left = `${x}px`;
-        square.style.top = `${y}px`;
-        container.appendChild(square);
-      }
-
-      // 4x4の正方形を生成
-      for (let i = 0; i < 4; i++) {
-        for (let j = 0; j < 4; j++) {
-          const x = (i - 1.5) * (squareSize + spacing); // 中央配置
-          const y = (j - 1.5) * (squareSize + spacing); // 中央配置
-          const alphabet = generateAlphabet(j * 4 + i); // Eの位置にBから
-          createSquare(x, y, alphabet);
-        }
-      }
-    });
-  </script>
-</main>
-</html> 
+<div class="new-main" id="newMain">
+  <!-- コンテンツを中央に配置するためのコンテナ -->
+  <%# <div class="content-container"> %>
+    <!-- メインコンテンツ、テーブルコンテナを含む -->
+    <div class="table-container">
+      <!-- 正方形と名前入力欄を表示するコンテナ -->
+      <div class="square-container" id="squareContainer"></div>
+      <!-- 他のテーブルを追加する場合はここに追加 -->
+    </div>
+  <%# </div> %>
+</div>

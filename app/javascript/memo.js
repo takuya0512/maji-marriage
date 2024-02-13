@@ -1,12 +1,11 @@
 // DOMContentLoaded イベントが発生したときに実行される関数
 document.addEventListener("DOMContentLoaded", function () {
-
   // 正方形のサイズとスペーシングの設定
   const squareSize = 100;
   const spacing = 240;
 
-  // squareContainer というIDを持つ要素を取得
-  const container = document.getElementById('squareContainer');
+  // tableContainer というクラスを持つ要素を取得
+  const tableContainer = document.querySelector('.table-container');
 
   // アルファベットを生成する関数
   function generateAlphabet(index) {
@@ -24,8 +23,8 @@ document.addEventListener("DOMContentLoaded", function () {
     square.style.position = 'absolute';
     square.style.left = `${x}px`;
     square.style.top = `${y}px`;
-    // 正方形を squareContainer に追加
-    container.appendChild(square);
+    // 正方形を tableContainer に追加
+    tableContainer.appendChild(square);
   }
 
   // 名前入力欄を作成し、指定された座標に配置する関数
@@ -67,8 +66,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // 生成した名前入力欄をコンテナに追加
-    container.appendChild(nameContainer);
-    container.appendChild(nameContainerLeft);
+    tableContainer.appendChild(nameContainer);
+    tableContainer.appendChild(nameContainerLeft);
   }
 
   // 4x4の正方形を配置するループ
