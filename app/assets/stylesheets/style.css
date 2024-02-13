@@ -1,37 +1,100 @@
 /* ヘッダー */
 header {
-  height: 73px;
-  display: flex;
-  align-items: center;
-  background-image: radial-gradient(rgb(89, 89, 89), rgb(145, 145, 145));
+  height: 100px;
+  /* background-image: radial-gradient(rgb(89, 89, 89), rgb(145, 145, 145)); */
+  padding: 10px 0;
+  width: 100%;
 }
 
-.title {
+/* .title {
   font-family: 'Vollkorn', serif;
   font-size: 35px;
-  padding-left: 30px;
   background: linear-gradient(180deg, #c0c0c0 0%, #d3d3d3 33%, #e0e0e0 62%, #d3d3d3 83%, #c0c0c0 100%);
   background: -webkit-linear-gradient(90deg, #c0c0c0 0%, #d3d3d3 33%, #e0e0e0 62%, #d3d3d3 83%, #c0c0c0 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+} */
+
+
+.title {
+  height:100px;
+  width: 100%;
+  padding: 0px;
+  
+  
 }
+
+.nav__btn{
+  display: inline-block;
+  padding: 1em 1.2em;
+  font-size: 0.8em;
+  color: #000000;
+  text-decoration: none;
+  user-select: none;
+  border: 1px #000000 solid;
+  border-radius: 3px;
+  transition: 0.4s ease;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.nav__right {
+  display: flex;
+  gap: 15px; 
+}
+
+/* ヘッダー */
+
+/* .logout {
+  text-decoration: none;
+  color: #333333;
+}
+
+.login {
+  text-decoration: none;
+  line-height: 32px;
+  margin-right: 3vw;
+  color: #333333;
+}
+
+.sign-up {
+  text-decoration: none;
+  color: #333333;
+} */ */
 
 /* ボディー */
-.first-view {
-  background-color: white;
+.index-main {
+  width: 100vw; /* モニターの幅に対して100% */
+  height: 100vh; /* モニターの高さに対して100% */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.couple {
   display: flex;
   align-items: center; 
-  justify-content: center; 
-  height: 100vh; ビューポートの高さいっぱいに広げる
+  justify-content: center;
 }
 
 
-.cupple {
+.couple-image {
+  opacity: 0; 
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  
   animation-name:fadeInAnime;
-  animation-duration:8s;
+  animation-duration:13s;
   animation-fill-mode:forwards;
-  opacity:0;
+  object-fit: cover;
 }
+
+
 
 @keyframes fadeInAnime{
   from {
@@ -44,10 +107,95 @@ header {
 }
 
 /* フッター */
-footer {
-  height: 30px;
-  background-color: #f0f0f0;
+/* footer {
+  background-color: #646363;
   text-align: center;
   color: black;
-  padding: 15px 15px ;
+  padding: 10px 10px ;
+ 
+  bottom: 0;
+  width: 100%;
+  font-size: 12px;
+} */
+
+
+
+
+/* newのファイル */
+body, html {
+  margin: 0;
+  padding: 0; 
+  height: 100Vh;
+  overflow: auto;
 }
+
+.new-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background-color: aqua;
+}
+
+/* .content-container {
+  max-width: 800px; 
+  margin: 20px;
+} */
+
+.main-container {
+  background-color: blue;
+}
+
+.table-container {
+  /* display: flex;
+  justify-content: center; */
+  display: flex;
+      justify-content: center;
+      margin-top: 0px; /* 調整可能 */
+
+}
+
+.square-container {
+  transform: translate(-50%, -50%);
+  height: 100%;
+  
+/* 
+  display: flex;
+      flex-wrap: wrap;
+      gap: 10px; 調整可能 */
+}
+
+.square {
+  width: 100px;
+  height: 100px;
+  border: 3px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  font-family: serif;
+}
+
+.name-input {
+  width: 80%;
+  margin-top: 10px;
+}
+
+.name-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+}
+
+
+/* .rectangle-container {
+  position: absolute;
+  top: 10%;
+  left: 13%;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+} */
