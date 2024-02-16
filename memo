@@ -1,0 +1,22 @@
+# Userモデル
+class User < ApplicationRecord
+  # Deviseや他の認証システムの設定を追加
+  # ...
+
+  has_many :seatings
+end
+
+# Seatingモデル
+class Seating < ApplicationRecord
+  belongs_to :user
+  has_many :guests
+
+  validates :name, presence: true # 必要に応じて他のバリデーションを追加
+end
+
+# Guestモデル
+class Guest < ApplicationRecord
+  belongs_to :seating
+
+  validates :name, presence: true # 必要に応じて他のバリデーションを追加
+end

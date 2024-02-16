@@ -1,13 +1,18 @@
 <%= render partial: "shared/header" %>
 
-<div class="new-main" id="newMain">
-  <!-- コンテンツを中央に配置するためのコンテナ -->
-  <%# <div class="content-container"> %>
+<div class="new-main">
     <!-- メインコンテンツ、テーブルコンテナを含む -->
-    <div class="table-container">
+    <%# <div class="table-container"> %>
       <!-- 正方形と名前入力欄を表示するコンテナ -->
       <div class="square-container" id="squareContainer"></div>
       <!-- 他のテーブルを追加する場合はここに追加 -->
-    </div>
-  <%# </div> %>
+    <%# </div> %>
+
+  <%# 下部ボタン %>
+    <%= form_for @seating do |f| %>
+      <div class="actions">
+        <%= f.submit "SAVE", class: :form__btn  %>
+      </div>
+    <% end %>
+    <%# /下部ボタン %>
 </div>

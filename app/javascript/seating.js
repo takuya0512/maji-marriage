@@ -1,6 +1,4 @@
-// DOMContentLoaded イベントが発生したときに実行される関数
-document.addEventListener("DOMContentLoaded", function () {
-
+document.addEventListener("turbo:load", function () {
   // 正方形のサイズとスペーシングの設定
   const squareSize = 100;
   const spacing = 240;
@@ -73,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // 4x4の正方形を配置するループ
   for (let i = 0; i < 4; i++) {
-    for (let j = 0; j < 4; j++) {
+    for (let j = 0; j < 3; j++) {
       // 正方形の座標およびアルファベットを生成
       const x = i * (squareSize + spacing) - 1.5 * (squareSize + spacing);
       const y = j * (squareSize + spacing) - 1.5 * (squareSize + spacing);
