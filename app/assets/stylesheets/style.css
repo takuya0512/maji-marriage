@@ -75,6 +75,15 @@ header {
   align-items: center;
 }
 
+.catch_copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  font-family: 'Hiragino Kaku Gothic ProN W3';
+}
+
 .couple {
   display: flex;
   align-items: center; 
@@ -106,18 +115,6 @@ header {
   }
 }
 
-/* フッター */
-/* footer {
-  background-color: #646363;
-  text-align: center;
-  color: black;
-  padding: 10px 10px ;
- 
-  bottom: 0;
-  width: 100%;
-  font-size: 12px;
-} */
-
 body, html {
   margin: 0;
   padding: 0; 
@@ -125,50 +122,76 @@ body, html {
   overflow: auto;
 }
 
-.new-main {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  /* background-color: aqua; */
-  padding-top: 20%;
-}
-
-/* .table-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px; 調整可能
-} */
-
-.square-container {
-  transform: translate(-50%, -50%);
-}
-
-.square {
-  width: 100px;
-  height: 100px;
-  border: 3px solid #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 25px;
-  font-family: serif;
-  border-radius: 50%;
-}
-
-.name-container {
+.seating-main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: absolute;
+  height: 100%;
+}
+
+.top-paragraph {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.seatinglist-image {
+  height: 120px;
+  width: 100%;
+  margin: 50px 0;
+}
+
+.top-seat {
+  font-size: 15px;
+  font-family: 'HiraMinProN-W3', sans-serif; 
+}
+
+.top-block {
+  height: 40px;
+  width: 200px;
+  border: 1px solid #000;
+  margin-top: 10px;
+}
+
+.paragraph {
+  display: flex;
+}
+
+.block-container {
+  display: flex;
+  margin: 50px;
+}
+
+.square {
+  width: 80px;
+  height: 80px;
+  border: 1px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  margin: 0 10px;
+  font-size: 25px;
+  font-family: 'HiraMinProN-W3', sans-serif;
+  border-radius: 50%;
+}
+
+.name-containerLeft {
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+}
+
+.name-containerRight {
+  display: flex;
+  flex-direction: column;
   font-size: 12px;
 }
 
 .name-input {
-  width: 90%;
-  height: 18px;
+  width: 100px;
+  height: 16px;
   margin-top: 10px;
-  font-size: 12px;
+  font-size: 14px;
   font-family: 'HiraMinProN-W3', sans-serif;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2); /
@@ -183,22 +206,23 @@ body, html {
 
 
 
-.form__btn {
-  display: inline-block;
-  padding: 1em 1.2em;
-  font-size: 1em;
-  color: #fff;
-  background-color: #e44d26; /* オレンジ色の背景色 */
-  text-decoration: none;
-  user-select: none;
-  border: 2px solid #e44d26; /* オレンジ色のボーダー */
-  border-radius: 5px;
-  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease; /* 色とアニメーションを追加 */
-}
 
-.form__btn:hover {  
-  cursor: pointer;
-  background-color: #c5351e; /* ホバー時の背景色を少し濃い目のオレンジに変更 */
-  color: #fff;
-  transform: scale(1.05); /* ホバー時に少し拡大するエフェクトを追加 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 席テンプレート選択 */
+
+.label-style {
+  font-size: 12px;
+  font-family: 'HiraMinProN-W3', sans-serif;
 }

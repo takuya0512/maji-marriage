@@ -6,6 +6,14 @@ document.addEventListener("turbo:load", function () {
   // squareContainer というIDを持つ要素を取得
   const container = document.getElementById('squareContainer');
 
+
+
+
+  // const squareContainer = document.createElement('div');
+  // squareContainer.className = 'square-container';
+
+
+  
   // アルファベットを生成する関数
   function generateAlphabet(index) {
     return String.fromCharCode(65 + index);
@@ -23,29 +31,11 @@ document.addEventListener("turbo:load", function () {
     square.style.left = `${x}px`;
     square.style.top = `${y}px`;
     // 正方形を squareContainer に追加
-    container.appendChild(square);
+    squareContainer.appendChild(square);
   }
 
   // 名前入力欄を作成し、指定された座標に配置する関数
   function createNameInput(x, y) {
-    // 名前入力欄の親要素を生成
-    const nameContainer = document.createElement('div');
-    nameContainer.className = 'name-container';
-    nameContainer.style.width = `${squareSize}px`;
-    nameContainer.style.top = `${y}px`;
-    nameContainer.style.left = `${x + squareSize + 10}px`;
-
-    // ゲスト4から6までの名前入力欄を生成
-    for (let i = 4; i <= 6; i++) {
-      const input = document.createElement('input');
-      input.type = 'text';
-      input.placeholder = `Guest ${i}`;
-      input.className = 'name-input';
-
-      // 名前入力欄を親要素に追加
-      nameContainer.appendChild(input);
-    }
-
     // 左側の名前入力欄の親要素を生成
     const nameContainerLeft = document.createElement('div');
     nameContainerLeft.className = 'name-container';
@@ -64,8 +54,26 @@ document.addEventListener("turbo:load", function () {
       nameContainerLeft.appendChild(input);
     }
 
+    // 右側の名前入力欄の親要素を生成
+    const nameContainerRight = document.createElement('div');
+    nameContainerRight.className = 'name-container';
+    nameContainerRight.style.width = `${squareSize}px`;
+    nameContainerRight.style.top = `${y}px`;
+    nameContainerRight.style.left = `${x + squareSize + 10}px`;
+
+    // ゲスト4から6までの名前入力欄を生成
+    for (let i = 4; i <= 6; i++) {
+      const input = document.createElement('input');
+      input.type = 'text';
+      input.placeholder = `Guest ${i}`;
+      input.className = 'name-input';
+
+      // 右側の名前入力欄を親要素に追加
+      nameContainerRight.appendChild(input);
+    }
+
     // 生成した名前入力欄をコンテナに追加
-    container.appendChild(nameContainer);
+    container.appendChild(nameContainerRight);
     container.appendChild(nameContainerLeft);
   }
 

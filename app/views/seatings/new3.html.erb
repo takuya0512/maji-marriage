@@ -1,124 +1,3 @@
-// <!-- app/views/seatings/new.html.erb -->
-// <h1>Seating Setup</h1>
-
-// <%= form_with(model: @initial_setup, url: seatings_create_path, method: :post) do |form| %>
-//   <!-- 1. テーブルの数 -->
-//   <%= form.label :table_count, 'テーブルの数は何卓にしますか？', class: 'label-style' %>
-//   <%= form.select :table_count, (1..15).to_a, {}, class: 'table-count select-style' %>
-
-//   <!-- 2. 1テーブルあたりの人数 -->
-//   <%= form.label :guests_per_table, '1テーブルあたりのゲストの人数は何名ですか？', class: 'label-style hidden', id: 'guests-per-table-label' %>
-//   <%= form.select :guests_per_table, (1..8).to_a, {}, class: 'hidden', id: 'guests-per-table' %>
-
-//   <!-- 3. テーブルの配置は何列にしますか？ -->
-//   <%= form.label :num_of_columns, 'テーブルの配置は何列にしますか？', class: 'label-style hidden', id: 'num-of-columns-label' %>
-//   <%= form.select :num_of_columns, (1..5).to_a, {}, class: 'hidden', id: 'num-of-columns' %>
-
-//   <!-- ダイナミックに表示されるテーブルの数の入力フォーム -->
-//   <div id="table-inputs"></div>
-
-//   <%= form.submit 'Create Seatings' %>
-// <% end %>
-
-// <script>
-//   document.addEventListener('DOMContentLoaded', function () {
-//     const tableCountSelect = document.querySelector('.table-count');
-//     const guestsPerTableLabel = document.getElementById('guests-per-table-label');
-//     const guestsPerTableSelect = document.getElementById('guests-per-table');
-//     const numOfColumnsLabel = document.getElementById('num-of-columns-label');
-//     const numOfColumnsSelect = document.getElementById('num-of-columns');
-//     const tableInputsContainer = document.getElementById('table-inputs');
-
-//     guestsPerTableLabel.style.display = 'none';
-//     guestsPerTableSelect.style.display = 'none';
-//     numOfColumnsLabel.style.display = 'none';
-//     numOfColumnsSelect.style.display = 'none';
-
-//     tableCountSelect.addEventListener('change', function () {
-//       guestsPerTableLabel.style.display = 'block';
-//       guestsPerTableSelect.style.display = 'block';
-//     });
-
-//     guestsPerTableSelect.addEventListener('change', function () {
-//       numOfColumnsLabel.style.display = 'block';
-//       numOfColumnsSelect.style.display = 'block';
-//       updateTableInputs();
-//     });
-
-//     numOfColumnsSelect.addEventListener('change', function () {
-//       updateTableInputs();
-//     });
-
-//     function updateTableInputs() {
-//       tableInputsContainer.innerHTML = ''; // Reset the container
-
-//       const numOfColumns = parseInt(numOfColumnsSelect.value);
-//       const remainingTables = tableCountSelect.value;
-
-//       for (let i = 1; i <= numOfColumns; i++) {
-//         const tablesLabel = document.createElement('label');
-//         tablesLabel.textContent = `列 ${i} のテーブル数は？`;
-//         tablesLabel.className = 'label-style';
-//         tableInputsContainer.appendChild(tablesLabel);
-
-//         const tablesSelect = document.createElement('select');
-//         tablesSelect.name = `tables_in_column_${i}`;
-//         tablesSelect.className = 'hidden'; // Initially hidden
-//         tableInputsContainer.appendChild(tablesSelect);
-
-//         // Populate the options based on remaining tables
-//         for (let j = 1; j <= remainingTables; j++) {
-//           const option = document.createElement('option');
-//           option.value = j;
-//           option.textContent = j;
-//           tablesSelect.appendChild(option);
-//         }
-
-//         // Add an event listener to show the input when the column count changes
-//         numOfColumnsSelect.addEventListener('change', function () {
-//           tablesLabel.style.display = 'none';
-//           tablesSelect.style.display = 'none';
-//           updateTableInputs();
-//         });
-
-//         // Add an event listener to show the input when the guests per table changes
-//         guestsPerTableSelect.addEventListener('change', function () {
-//           tablesLabel.style.display = 'none';
-//           tablesSelect.style.display = 'none';
-//           updateTableInputs();
-//         });
-//       }
-//     }
-//   });
-// </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- app/views/seatings/new.html.erb -->
 <h1>Seating Setup</h1>
 
@@ -147,9 +26,13 @@
   <%= form.label :third_row_tables, '3列目のテーブルの数は？', class: 'label-style hidden', id: 'third-row-tables-label' %>
   <%= form.select :third_row_tables, (1..15).to_a, {}, class: 'hidden', id: 'third-row-tables' %>
 
-  <!-- 7. 4列目のテーブルの数（自動計算） -->
+  <!-- 7. 4列目のテーブルの数 -->
   <%= form.label :fourth_row_tables, '4列目のテーブルの数は？', class: 'label-style hidden', id: 'fourth-row-tables-label' %>
   <%= form.select :fourth_row_tables, (1..15).to_a, {}, class: 'hidden', id: 'fourth-row-tables' %>
+
+    <!-- 7. 5列目のテーブルの数（自動計算） -->
+  <%= form.label :fifth_row_tables, '5列目のテーブルの数は？', class: 'label-style hidden', id: 'fifth-row-tables-label' %>
+  <%= form.select :fifth_row_tables, (1..15).to_a, {}, class: 'hidden', id: 'fifth-row-tables' %>
 
   <%= form.submit 'Create Seatings' %>
 <% end %>
@@ -243,3 +126,4 @@
     }
   });
 </script>
+
