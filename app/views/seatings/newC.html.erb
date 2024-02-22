@@ -1,5 +1,16 @@
 <%= render partial: "shared/header" %>
 
+<img src="example.jpg" id="image" />
+
+<script>
+  // 画像のクリックイベントを無効化する
+  document.getElementById('seatinglist.png').addEventListener('click', function(event) {
+    event.preventDefault(); // イベントのデフォルトの動作を無効化
+    event.stopPropagation(); // イベントが親要素に伝播しないようにする
+  });
+</script>
+
+
 <div class="seating-main">
     <div class="top-paragraph">
       <%= link_to image_tag("seatinglist.png", class:"seatinglist-image") %>

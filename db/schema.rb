@@ -10,7 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_16_035257) do
+ActiveRecord::Schema[7.0].define(version: 2024_02_21_092500) do
+  create_table "guests", charset: "utf8", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "initial_setups", charset: "utf8", force: :cascade do |t|
     t.integer "table_count"
     t.integer "guests_per_table"
@@ -19,7 +24,17 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_16_035257) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "patterns", charset: "utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "seatings", charset: "utf8", force: :cascade do |t|
+    t.string "pattern", null: false
+    t.integer "table_count", null: false
+    t.integer "guest_count", null: false
+    t.date "date", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

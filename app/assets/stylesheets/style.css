@@ -1,27 +1,14 @@
 /* ヘッダー */
 header {
   height: 100px;
-  /* background-image: radial-gradient(rgb(89, 89, 89), rgb(145, 145, 145)); */
   padding: 10px 0;
   width: 100%;
 }
-
-/* .title {
-  font-family: 'Vollkorn', serif;
-  font-size: 35px;
-  background: linear-gradient(180deg, #c0c0c0 0%, #d3d3d3 33%, #e0e0e0 62%, #d3d3d3 83%, #c0c0c0 100%);
-  background: -webkit-linear-gradient(90deg, #c0c0c0 0%, #d3d3d3 33%, #e0e0e0 62%, #d3d3d3 83%, #c0c0c0 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-} */
-
 
 .title {
   height:100px;
   width: 100%;
   padding: 0px;
-  
-  
 }
 
 .nav__btn{
@@ -34,12 +21,18 @@ header {
   border: 1px #000000 solid;
   border-radius: 3px;
   transition: 0.4s ease;
+  z-index: 2;
 }
 
 .nav {
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+
+.nav__left {
+  z-index: 2;
+
 }
 
 .nav__right {
@@ -73,6 +66,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .catch_copy {
@@ -80,7 +74,7 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 25px;
+  font-size: 20px;
   font-family: 'Hiragino Kaku Gothic ProN W3';
 }
 
@@ -94,31 +88,16 @@ header {
 .couple-image {
   opacity: 0; 
   display: flex;
-  align-items: center; 
-  justify-content: center;
-  
-  animation-name:fadeInAnime;
-  animation-duration:13s;
-  animation-fill-mode:forwards;
+  align-items: center;
   object-fit: cover;
-}
-
-
-
-@keyframes fadeInAnime{
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
+  height: 600px;
 }
 
 body, html {
   margin: 0;
   padding: 0; 
   height: 100Vh;
+  width: 100vw;
   overflow: auto;
 }
 
@@ -160,6 +139,7 @@ body, html {
 .block-container {
   display: flex;
   margin: 50px;
+  width: 300px;
 }
 
 .square {
@@ -204,25 +184,25 @@ body, html {
   outline: none !important;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* 席テンプレート選択 */
 
-.label-style {
-  font-size: 12px;
+.pattern-select {
+  font-size: 20px;
   font-family: 'HiraMinProN-W3', sans-serif;
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.select-image {
+  display: flex;
+  justify-content: space-around;
+}
+
+.seat-image {
+  height: 150px;
+  width: 150px;
+  border: 2px solid black;
+  border-radius: 10px;
 }
