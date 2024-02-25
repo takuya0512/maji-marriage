@@ -10,39 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_21_092500) do
+ActiveRecord::Schema[7.0].define(version: 2024_02_23_113642) do
   create_table "guests", charset: "utf8", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "initial_setups", charset: "utf8", force: :cascade do |t|
-    t.integer "table_count"
-    t.integer "guests_per_table"
-    t.integer "front_tables"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "patterns", charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
+    t.bigint "guest_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["guest_id"], name: "index_guests_on_guest_id"
   end
 
   create_table "seatings", charset: "utf8", force: :cascade do |t|
     t.string "pattern", null: false
-    t.integer "table_count", null: false
-    t.integer "guest_count", null: false
-    t.date "date", null: false
+    t.string "table_code", null: false
+    t.string "position_code", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_seatings_on_user_id"
   end
 
   create_table "users", charset: "utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.string "name", null: false
+    t.string "groom", null: false
+    t.string "bride", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -52,4 +43,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_21_092500) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "guests", "guests"
+  add_foreign_key "seatings", "users"
 end

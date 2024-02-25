@@ -1,24 +1,36 @@
 <%= render partial: "shared/header" %>
 
-<div class="index-main">
-  <div class="pattern-select">式のお日にちはいつですか？</div>
-  <input type="date" name="date">
+<div class="select-main">
+  <%# <div class="pattern-select">式のお日にちはいつですか？</div>  %>
+  <div class="video-container">
+    <video width="640" height="360" autoplay muted loop class="marriage-video" id="myVideo">
+    <source src="/video/marriage.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+    </video>
+  </div>
 
-  <div class="pattern-select">どのパターンで作成しますか？</div>
-    <div class="select-image">
-    <%= link_to new_seating_path(pattern: 'A') do %>
-      <%= image_tag("seatA.png", class: "seat-image") %>
-      <div class="select-text">Table 8<br>Guest 48</div>
-    <% end %>
+  <script>
+    document.getElementById("myVideo").playbackRate = 0.7;
+  </script>
+  
+  <div class="select-inner">
+    <%# <div class="pattern-select">どのパターンで作成しますか？</div> %>
+    <%= link_to image_tag("which.png", class:"which-image")%>
+      <div class="select-image">
+        <%= link_to new_seating_path(pattern: 'A') do %>
+          <%= image_tag("seatA.png", class: "seat-image") %>
+          <div class="select-text">Table 8<br>Guest 48</div>
+        <% end %>
 
-    <%= link_to new_seating_path(pattern: 'B') do %>
-      <%= image_tag("seatB.png", class: "seat-image") %>
-      <div class="select-text">Table 10<br>Guest 60</div>
-    <% end %>
+        <%= link_to new_seating_path(pattern: 'B') do %>
+          <%= image_tag("seatB.png", class: "seat-image") %>
+          <div class="select-text">Table 10<br>Guest 60</div>
+        <% end %>
 
-    <%= link_to new_seating_path(pattern: 'C') do %>
-      <%= image_tag("seatC.png", class: "seat-image") %>
-      <div class="select-text">Table 12<br>Guest 72</div>
-    <% end %>
+        <%= link_to new_seating_path(pattern: 'C') do %>
+          <%= image_tag("seatC.png", class: "seat-image") %>
+          <div class="select-text">Table 12<br>Guest 72</div>
+        <% end %>
+      </div>
+  </div>
 </div>
-

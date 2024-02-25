@@ -1,16 +1,8 @@
 <%= render partial: "shared/header" %>
 
 <div class="seating-main">
-    <div class="top-paragraph">
-      <%= link_to image_tag("seatinglist.png", class:"seatinglist-image") %>
-      <div class="top-seat">
-        <input type="text" class="name-input" placeholder="Groom">
-        &
-        <input type="text" class="name-input" placeholder="Bride">
-      </div>
-      <div class="top-block"></div>
-  </div>
-      
+  <%= render partial: "shared/top_paragraph" %>
+
   <%# 1列目 %>
   <div class="paragraph">
     <div class="block-container">
@@ -149,15 +141,13 @@
   </div>
 
   <%# 下部ボタン %>
-  
+  <%= form_with(model: @seating, url: seatings_path, method: :post, local: true) do |f| %>
+    <div class="actions">
+      <%= f.hidden_field :pattern, value: 'A' %>
+      <%= f.submit "SAVE", class: 'form__btn' %>
+    </div>
+  <% end %>
 
-
-
-    <%# <%= form_for @seating do |f| %>
-      <%# <div class="actions">  %>
-        <%# <%= f.submit "SAVE", class: :form__btn  %> 
-      <%# </div> %>
-    <%# <% end %> 
   <%# /下部ボタン %>
 </div>
 

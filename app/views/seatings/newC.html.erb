@@ -1,26 +1,7 @@
 <%= render partial: "shared/header" %>
 
-<img src="example.jpg" id="image" />
-
-<script>
-  // 画像のクリックイベントを無効化する
-  document.getElementById('seatinglist.png').addEventListener('click', function(event) {
-    event.preventDefault(); // イベントのデフォルトの動作を無効化
-    event.stopPropagation(); // イベントが親要素に伝播しないようにする
-  });
-</script>
-
-
 <div class="seating-main">
-    <div class="top-paragraph">
-      <%= link_to image_tag("seatinglist.png", class:"seatinglist-image") %>
-      <div class="top-seat">
-        <input type="text" class="name-input" placeholder="Groom">
-        &
-        <input type="text" class="name-input" placeholder=" Bride">
-      </div>
-      <div class="top-block"></div>
-  </div>
+    <%= render partial: "shared/top_paragraph" %>
       
   <%# 1列目 %>
   <div class="paragraph">
@@ -222,6 +203,13 @@
       </div>
     </div>
   </div>
+
+    <%= form_with(model: @seating, url: seatings_path, method: :post, local: true) do |f| %>
+    <div class="actions">
+      <%= f.hidden_field :pattern, value: 'A' %>
+      <%= f.submit "SAVE", class: 'form__btn' %>
+    </div>
+  <% end %>
 
   
 </div>

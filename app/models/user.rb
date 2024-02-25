@@ -4,8 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  with_options presence: true do
-    validates :name
-    validates :password, length: { minimum: 6 }
-  end
+  has_many :seatings
+
+  validates :groom, presence: true
+  validates :bride, presence: true
+  validates :password, length: { minimum: 6 }
 end
