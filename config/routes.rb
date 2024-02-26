@@ -3,8 +3,7 @@ Rails.application.routes.draw do
   root to: 'seatings#index'
   resources :seatings, only: [:new, :create]  do
     collection do
-      get :select_pattern # パターン選択画面
-      get 'new/:pattern', to: 'seatings#new', as: :new_seating_pattern
+      get 'select_pattern' # パターン選択画面
     end
   end
 end

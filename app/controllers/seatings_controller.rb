@@ -1,44 +1,42 @@
 class SeatingsController < ApplicationController
+  before_action :set_pattern, only: [:new, :create]
 
   def index
   end
 
-  def select_pattern
-    @seatings = Seating.all
-  end
-
   def new
-    # パターン情報をセッションに保存
-    session[:selected_pattern] = params[:pattern]
-
     @seating = Seating.new
-    @pattern = session[:selected_pattern]
-
-    if @pattern == 'A'
-    render 'newA'
-    elsif @pattern == 'B'
-      render 'newB'
-    elsif @pattern == 'C'
-      render 'newC'
-    else
-      render 'unknown_pattern'
-    end
+    select_pattern
   end
 
   def create
-    @seating = Seating.new(seating_params)
+    @seating_guest = SeatingGuest.new(seating_guest_params)
 
-    if @seating.save
-      # セッションからパターン情報を取得し、それを元に遷移
-      redirect_to new_seating_path(pattern: session[:selected_pattern])
+    if 
+      # @seating_guest.valid?
+      @seating_guest.save
+      redirect_to root_path
     else
-      render :new
+      select_pattern
     end
   end
 
   private
 
-  def seating_params
-    params.require(:seating).permit(:pattern)
+  def seating_guest_params
+    params.require(:seating_guest).permit(:pattern, :table_code, :position_code, :name).merge(user_id: current_user.id)
+  end
+
+  def set_pattern
+    @pattern = params[:pattern]
+  end
+
+  def select_pattern
+    case @pattern
+    when 'A', 'B', 'C'
+      render "new#{@pattern}"
+    else
+      render root_path
+    end
   end
 end

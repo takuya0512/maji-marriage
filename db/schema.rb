@@ -13,10 +13,10 @@
 ActiveRecord::Schema[7.0].define(version: 2024_02_23_113642) do
   create_table "guests", charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.bigint "guest_id", null: false
+    t.bigint "seating_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["guest_id"], name: "index_guests_on_guest_id"
+    t.index ["seating_id"], name: "index_guests_on_seating_id"
   end
 
   create_table "seatings", charset: "utf8", force: :cascade do |t|
@@ -43,6 +43,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_23_113642) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "guests", "guests"
+  add_foreign_key "guests", "seatings"
   add_foreign_key "seatings", "users"
 end

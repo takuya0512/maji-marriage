@@ -1,5 +1,58 @@
 /* トップページアニメーション */
 
+/* スクリーン */
+:root {
+  --animation-duration: 5s; /* アニメーションの時間を変数で定義 */
+  --curtain-color: #000000; /* 幕の色を変数で定義 */
+  --content-color: white; /* コンテンツのテキスト色を変数で定義 */
+}
+
+.curtain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.top-curtain, .bottom-curtain {
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  background-color: var(--curtain-color);
+  z-index: 4;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  animation-duration: var(--animation-duration);
+  animation-fill-mode: forwards;
+}
+
+.top-curtain {
+  top: 0;
+  animation-name: curtainOpenTop;
+}
+
+.bottom-curtain {
+  bottom: 0;
+  clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%);
+  animation-name: curtainOpenBottom;
+}
+
+@keyframes curtainOpenTop {
+  100% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
+  }
+}
+
+@keyframes curtainOpenBottom {
+  100% {
+    clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+  }
+}
+
 /* フラワーシャワー */
 #sakura_block{
   position: absolute;
@@ -106,25 +159,7 @@ img.parts_15,img.parts_18{
   animation-delay: 5s;
 }
 
-/* カップルイメージフェードイン */
-
-.couple-image {
-  animation-name:fadeInAnime;
-  animation-duration:13s;
-  animation-fill-mode:forwards;
-}
-
-@keyframes fadeInAnime{
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-
+/* セレクトページ */
 .select-inner {
   animation: fadeup 5s cubic-bezier(0.33, 1, 0.68, 1) forwards;
 }

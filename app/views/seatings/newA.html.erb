@@ -143,11 +143,11 @@
   <%# 下部ボタン %>
   <%= form_with(model: @seating, url: seatings_path, method: :post, local: true) do |f| %>
     <div class="actions">
-      <%= f.hidden_field :pattern, value: 'A' %>
+      <%# <%= f.hidden_field :pattern, value: 'A' %> 
+      <%= f.hidden_field :pattern, value: @pattern %>
       <%= f.submit "SAVE", class: 'form__btn' %>
     </div>
   <% end %>
 
   <%# /下部ボタン %>
 </div>
-
