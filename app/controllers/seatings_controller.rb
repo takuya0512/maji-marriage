@@ -1,23 +1,30 @@
 class SeatingsController < ApplicationController
+  before_action :authenticate_user!, except: [:index]
   before_action :set_pattern, only: [:new, :create]
 
   def index
   end
 
+  def select_pattern
+  
+    puts "selectアクション"
+    render "new#{@pattern}" if ['A', 'B', 'C'].include?(@pattern)
+  end
+
   def new
-    @seating = Seating.new
+    puts "newアクション"
+    @seating_guest = SeatingGuest.new
     select_pattern
   end
 
   def create
+    puts "createアクションやったよ"
     @seating_guest = SeatingGuest.new(seating_guest_params)
 
-    if 
-      # @seating_guest.valid?
-      @seating_guest.save
+    if @seating_guest.save
       redirect_to root_path
     else
-      select_pattern
+      render "new#{@seating_guest.pattern}"
     end
   end
 
@@ -29,14 +36,5 @@ class SeatingsController < ApplicationController
 
   def set_pattern
     @pattern = params[:pattern]
-  end
-
-  def select_pattern
-    case @pattern
-    when 'A', 'B', 'C'
-      render "new#{@pattern}"
-    else
-      render root_path
-    end
   end
 end

@@ -87,12 +87,11 @@ header {
 
 /* ボディー */
 .index-main {
-  width: 100vw; /* モニターの幅に対して100% */
-  height: 100vh; /* モニターの高さに対して100% */
+  width: 100vw;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* position: relative; */
 }
 
 .catch_copy {
@@ -102,10 +101,6 @@ header {
   font-size: 20px;
   font-family: 'Hiragino Kaku Gothic ProN W3';
 }
-
-
-
-
 
 .couple {
   display: flex;
@@ -130,6 +125,7 @@ body, html {
   overflow: auto;
 }
 
+/* 作成ページ */
 .seating-main {
   display: flex;
   flex-direction: column;
@@ -155,20 +151,38 @@ body, html {
   font-family: 'HiraMinProN-W3', sans-serif; 
 }
 
-.top-block {
-  height: 40px;
-  width: 200px;
-  border: 1px solid #000;
-  margin-top: 10px;
+.groom_bride_seat {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  }
+
+.bottom-paragraph {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 50px 0 100px ;
 }
+
+.save__botton {
+  border: none;
+  background-color: #fff;
+}
+
+.form__btn{
+  height: 120px;
+  width: 120px;
+  cursor: pointer; /* カーソルを手のアイコンに変更 */
+} 
 
 .paragraph {
   display: flex;
+  justify-content: space-around;
 }
 
 .block-container {
   display: flex;
-  margin: 50px;
+  margin: 50px 30px;
   width: 300px;
 }
 
@@ -204,7 +218,7 @@ body, html {
   font-size: 14px;
   font-family: 'HiraMinProN-W3', sans-serif;
   border: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2); /
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   outline: none;
 }
 
@@ -313,3 +327,5 @@ body, html {
   border-radius: 4px;
   font-size: 14px;
 }
+
+
