@@ -1,20 +1,23 @@
 <header class="header">
   <div class="inner">
     <div class="nav">
-      <div class="nav__left">
+      <div class="nav__block">
         <%= link_to image_tag("logo.png", class: "title"), "/" %>
       </div>
       <% if user_signed_in? %>
-        <div class="nav__right">
-          <%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete }, class: :nav__logout %>
+        <div class="nav__block">
+          <%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete }, class: :nav__btn %>
           <%= link_to "NewSeatings", select_pattern_seatings_path, class: :nav__btn %>
+          <%= link_to(user_path(current_user)) { image_tag("my_page.png", class: "mypage-image") } %>
         </div>
+        
       <% else %>
-        <div class="nav__right">
-          <%= link_to "Login", new_user_session_path, class: :nav__login %>
+        <div class="nav__block">
+          <%= link_to "Login", new_user_session_path, class: :nav__btn %>
           <%= link_to "NewUser", new_user_registration_path, class: :nav__btn %>
         </div>
       <% end %>
     </div>
+    
   </div>
 </header>
