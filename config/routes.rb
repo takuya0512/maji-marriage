@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  # devise_for :users
+  devise_for :users
   root to: 'seatings#index'
-  resources :seatings, only: [:index, :new]
+  resources :seatings, only: [:inde, :new, :create]  do
+    collection do
+      get 'select_pattern'
+    end
+  end
+  resources :users, only: :show
 end

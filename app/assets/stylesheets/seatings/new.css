@@ -1,0 +1,107 @@
+.seating-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.top-paragraph {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none; 
+}
+
+.seatinglist-image {
+  height: 120px;
+  width: 100%;
+  margin: 50px 0;
+}
+
+.top-seat {
+  font-size: 15px;
+  font-family: 'HiraMinProN-W3', sans-serif; 
+}
+
+.groom_bride_seat {
+  height: 100px;
+  display: flex;
+  align-items: center;
+}
+
+.bottom-paragraph {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 50px 0 100px ;
+}
+
+.save__botton {
+  border: none;
+  background-color: #fff;
+}
+
+.form__btn{
+  height: 120px;
+  width: 120px;
+  cursor: pointer; 
+} 
+
+.paragraph {
+  display: flex;
+  justify-content: space-around;
+}
+
+.block-container {
+  display: flex;
+  margin: 50px 30px;
+  width: 300px;
+}
+
+.square {
+  width: 80px;
+  height: 80px;
+  border: 1px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  margin: 0 10px;
+  font-size: 25px;
+  font-family: 'HiraMinProN-W3', sans-serif;
+  border-radius: 50%;
+}
+
+.name-containerLeft {
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+}
+
+.name-containerRight {
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+}
+
+.name-input {
+  width: 100px;
+  height: 16px;
+  margin-top: 10px;
+  font-size: 14px;
+  font-family: 'HiraMinProN-W3', sans-serif;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  outline: none;
+}
+
+.lead-input {
+  width: 100px;
+  height: 18px;
+  margin-top: 10px;
+  font-size: 18px;
+  margin-right: 0px;
+  font-family: 'HiraMinProN-W3', sans-serif;
+  border: none;
+  outline: none;
+  text-align: center; 
+}

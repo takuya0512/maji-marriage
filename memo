@@ -1,0 +1,131 @@
+# Userモデル
+class User < ApplicationRecord
+  # Deviseや他の認証システムの設定を追加
+  # ...
+
+  has_many :seatings
+end
+
+# Seatingモデル
+class Seating < ApplicationRecord
+  belongs_to :user
+  has_many :guests
+
+  validates :name, presence: true # 必要に応じて他のバリデーションを追加
+end
+
+# Guestモデル
+class Guest < ApplicationRecord
+  belongs_to :seating
+
+  validates :name, presence: true # 必要に応じて他のバリデーションを追加
+end
+
+
+
+
+
+class SeatingsController < ApplicationController
+  before_action :set_pattern, only: [:new, :create, :select_pattern]
+
+  def index
+  end
+
+  def select_pattern
+     # ここでパターンを保存するかどうかの処理を追加する
+  session[:selected_pattern] = @pattern
+    puts "selectアクション"
+    render "new#{@pattern}" if ['A', 'B', 'C'].include?(@pattern)
+  end
+
+  def new
+    puts "newアクション"
+    @seating = Seating.new
+    select_pattern
+  end
+
+  def create
+    @seating_guest = SeatingGuest.new(seating_guest_params)
+
+    if @seating_guest.save
+      redirect_to root_path
+    else
+      render "new#{@seating_guest.pattern}"
+    end
+  end
+
+  private
+
+  def seating_guest_params
+    params.require(:seating_guest).permit(:pattern, :table_code, :position_code, :name).merge(user_id: current_user.id)
+  end
+
+  def set_pattern
+    @pattern = params[:pattern]
+  end
+end
+
+
+
+
+
+
+正しい！！！！！！！！！！！
+class SeatingsController < ApplicationController
+  before_action :set_pattern, only: [:new, :create, :select_pattern]
+
+  def index
+  end
+
+  def select_pattern
+     # ここでパターンを保存するかどうかの処理を追加する
+    puts "selectアクション"
+     redirect_to action: "new", pattern: @pattern if ['A', 'B', 'C'].include?(@pattern)
+    puts "select_pattern アクション実行完了"
+
+  end
+
+  def new
+    puts "newアクションが呼び出されました"
+    @seating_guest = SeatingGuest.new
+
+    puts "Rendering template: new#{@pattern}"
+  end
+
+
+  def create
+    @seating_guest = SeatingGuest.new(seating_guest_params)
+
+    if @seating_guest.save
+      redirect_to root_path
+    else
+      render "new#{@seating_guest.pattern}"
+    end
+  end
+
+  private
+
+  def seating_guest_params
+    params.require(:seating_guest).permit(:pattern, :table_code, :position_code, :name).merge(user_id: current_user.id)
+  end
+
+  def set_pattern
+    @pattern = params[:pattern]
+  end
+end
+
+
+
+
+
+
+
+
+
+<%# <%= link_to image_tag("save.png", class:"form__btn", id: ""), "#" %> 
+      <%# <%= f.hidden_field :pattern, value: @pattern %>
+      <%# <%= f.submit "SAVE", class: 'form__btn' %> 
+
+      <%= button_tag type: :submit, class: "save__botton" do %>
+      <%= image_tag "save.png", class:"form__btn" %>
+    <% end %> 

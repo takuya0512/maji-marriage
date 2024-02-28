@@ -1,0 +1,29 @@
+.index-main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.catch_copy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-family: 'Hiragino Kaku Gothic ProN W3';
+}
+
+.couple {
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+}
+
+.couple-image {
+  opacity: 0; 
+  display: flex;
+  align-items: center;
+  object-fit: cover;
+  height: 600px;
+}

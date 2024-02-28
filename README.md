@@ -44,7 +44,8 @@ git cloneしてから、ローカルで動作をさせるまでに必要なコ�
 
 | Column             | Type       | Options                   |
 | ------------------ | ---------- | ------------------------- | 
-| name               | string     | null: false               |
+| groom              | string     | null: false               |
+| bride              | string     | null: false               |
 | email              | string     | null: false, unique: true |
 | encrypted_password | string     | null: false               |
 
@@ -54,20 +55,25 @@ git cloneしてから、ローカルで動作をさせるまでに必要なコ�
 
 ## seatings テーブル
 
-| Column             | Type       | Options                   |
-| ------------------ | ---------- | ------------------------- | 
-| seating_name       | string     | null: false               |
-|                    |            |                           |
-|                    |            |                           |
+| Column        | Type       | Options                        |
+| ------------  | ---------- | -------------------------      | 
+| pattern       | string     | null: false                    |
+| table_code    | string     | null: false                    |
+| position_code | string     | null: false                    |
+| user          | references | null: false, foreign_key: true |
 
 ### Association
+
+- belongs_to :user
+- has_many   :guests
 
 ## guests テーブル
 
-| Column             | Type       | Options                   |
-| ------------------ | ---------- | ------------------------- | 
-|                    |            |                           |
-|                    |            |                           |
-|                    |            |                           |
+| Column        | Type       | Options                        |
+| ------------  | ---------- | ------------------------------ | 
+| name          | string     |                                |
+| seating       | references | null: false, foreign_key: true |
 
 ### Association
+
+- belongs_to :seating

@@ -1,5 +1,8 @@
 class Seating < ApplicationRecord
-  with_options presence: true do
-    validates :seating_name
-  end
+  belongs_to :user
+  has_many :guests
+
+  # validates :pattern, presence: true
+  # validates :table_code, presence: true
+  # validates :position_code, presence: true
 end

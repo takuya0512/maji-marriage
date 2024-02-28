@@ -1,7 +1,19 @@
 <%= render "shared/header" %>
 
-<div class = "index-main">
+<div class="index-main">  
   <div class="couple"> 
-    <%= link_to image_tag("couple.png", class:"couple-image"), "#" %>
+    <div class="catch_copy">結婚式に来てくれる人は、 <br>あなたの人生を支えてくれる人です。</div>
+    <%= link_to image_tag("couple.png", class:"couple-image", id: "coupleImage"), "#" %>
   </div> 
+
+  <div class="curtain">
+    <div class="top-curtain"></div>
+    <div class="bottom-curtain"></div>
+  </div>
+
+  <div id="sakura_block">
+    <div class="sakura_parts_box">
+      <% (1..19).each { |i| %><%= link_to image_tag("sakura.parts/parts_#{format('%02d', i)}.png", class: "parts_#{format('%02d', i)}") %><% } %>
+    </div>
+  </div>
 </div>

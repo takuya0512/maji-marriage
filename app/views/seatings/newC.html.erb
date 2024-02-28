@@ -1,0 +1,103 @@
+<%= render partial: "shared/header" %>
+
+<div class="seating-main">
+  <%= render partial: "shared/top_paragraph" %>
+
+  <%= form_with(model: @seating_guest, url: seatings_path, method: :post, local: true) do |f| %>
+
+  <%# 1列目 %>
+  <div class="paragraph">
+    <% ('A'..'D').each do |table_code| %>
+      <div class="block-container">
+        <div class="name-containerLeft">
+          <% (1..3).each do |index| %>
+            <div class="name-containerLeft">
+              <%= f.text_area "guests[#{table_code}][#{index}][name]", class: "name-input", placeholder: "Guest #{index}" %>
+              <%= f.hidden_field "guests[#{table_code}][#{index}][table_code]", value: table_code %>
+              <%= f.hidden_field "guests[#{table_code}][#{index}][position_code]", value: index %>
+            </div>
+          <% end %>
+        </div>
+        <div class="square">
+          <div class="square-num"><%= table_code %></div>
+        </div>
+        <div class="name-containerRight">
+          <% (4..6).each do |index| %>
+            <div class="name-containerLeft">
+              <%= f.text_area "guests[#{table_code}][#{index}][name]", class: "name-input", placeholder: "Guest #{index}" %>
+              <%= f.hidden_field "guests[#{table_code}][#{index}][table_code]", value: table_code %>
+              <%= f.hidden_field "guests[#{table_code}][#{index}][position_code]", value: index %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <%# 2列目 %>
+  <div class="paragraph">
+    <% ('E'..'H').each do |table_code| %>
+      <div class="block-container">
+        <div class="name-containerLeft">
+          <% (1..3).each do |index| %>
+            <div class="name-containerLeft">
+              <%= f.text_area "guests[#{table_code}][#{index}][name]", class: "name-input", placeholder: "Guest #{index}" %>
+              <%= f.hidden_field "guests[#{table_code}][#{index}][table_code]", value: table_code %>
+              <%= f.hidden_field "guests[#{table_code}][#{index}][position_code]", value: index %>
+            </div>
+          <% end %>
+        </div>
+        <div class="square">
+          <div class="square-num"><%= table_code %></div>
+        </div>
+        <div class="name-containerRight">
+          <% (4..6).each do |index| %>
+            <div class="name-containerLeft">
+              <%= f.text_area "guests[#{table_code}][#{index}][name]", class: "name-input", placeholder: "Guest #{index}" %>
+              <%= f.hidden_field "guests[#{table_code}][#{index}][table_code]", value: table_code %>
+              <%= f.hidden_field "guests[#{table_code}][#{index}][position_code]", value: index %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <%# 3列目 %>
+  <div class="paragraph">
+    <% ('I'..'L').each do |table_code| %>
+      <div class="block-container">
+        <div class="name-containerLeft">
+          <% (1..3).each do |index| %>
+            <div class="name-containerLeft">
+              <%= f.text_area "guests[#{table_code}][#{index}][name]", class: "name-input", placeholder: "Guest #{index}" %>
+              <%= f.hidden_field "guests[#{table_code}][#{index}][table_code]", value: table_code %>
+              <%= f.hidden_field "guests[#{table_code}][#{index}][position_code]", value: index %>
+            </div>
+          <% end %>
+        </div>
+        <div class="square">
+          <div class="square-num"><%= table_code %></div>
+        </div>
+        <div class="name-containerRight">
+          <% (4..6).each do |index| %>
+            <div class="name-containerLeft">
+              <%= f.text_area "guests[#{table_code}][#{index}][name]", class: "name-input", placeholder: "Guest #{index}" %>
+              <%= f.hidden_field "guests[#{table_code}][#{index}][table_code]", value: table_code %>
+              <%= f.hidden_field "guests[#{table_code}][#{index}][position_code]", value: index %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <%# 保存ボタン %>
+  <div class="bottom-paragraph">
+    <%= f.hidden_field :pattern, value: @pattern %>
+    <div class= "save__botton" >
+      <%= image_submit_tag("save.png", class: 'form__btn') %>
+    </div>
+  </div>
+  <% end %>
+</div>
