@@ -8,14 +8,24 @@ default: &default
 
 development:
   <<: *default
+  adapter: mysql2
+  username: root
+  password:
+  host: localhost
   database: maji_marriage_development
 
 test:
   <<: *default
+  adapter: mysql2
+  username: root
+  password:
+  host: localhost
   database: maji_marriage_test
 
 production:
   <<: *default
+  adapter: postgresql
+  url: <%= ENV['DATABASE_URL'] %>
   database: maji_marriage_production
   username: maji_marriage
   password: <%= ENV["MAJI_MARRIAGE_DATABASE_PASSWORD"] %>
