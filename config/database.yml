@@ -8,7 +8,7 @@ development:
   username: root
   password:
   host: localhost
-  database: maji_marriage_development
+  database: maji-marriage_development
 
 test:
   <<: *default
@@ -16,7 +16,7 @@ test:
   username: root
   password:
   host: localhost
-  database: maji_marriage_test
+  database: maji-marriage_test
 
 production:
   <<: *default
