@@ -1,0 +1,11 @@
+<%= render partial: "shared/header" %>
+
+<h1><%= current_user.groom %>さん&<%= current_user.bride %>さんの席次表</h1>
+
+<% if @seating %>
+  <!-- 席次表が存在する場合の表示 -->
+  <%= render partial: 'seating', locals: { seating: @seating } %>
+<% else %>
+  <!-- 席次表が存在しない場合の表示 -->
+  <p>席次表がまだ作成されていません。</p>
+<% end %>

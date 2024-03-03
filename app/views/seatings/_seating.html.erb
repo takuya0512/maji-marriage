@@ -1,0 +1,23 @@
+<!-- app/views/seatings/_seating.html.erb -->
+
+<h2><%= @seating.pattern %> の席次表</h2>
+
+<!-- 席次表の表示ロジックをここに追加 -->
+<% ('A'..'J').each do |table_code| %>
+  <div class="table-container">
+    <h4><%= table_code %> テーブル</h4>
+
+    <% (1..6).each do |position_code| %>
+      <div class="position">
+        <h5>ポジション <%= position_code %></h5>
+        <% guest = @seating.guest_at(table_code, position_code) %>
+
+        <% if guest %>
+          <p><strong>ゲスト名:</strong> <%= guest.name %></p>
+        <% else %>
+          <p><em>ゲスト未設定</em></p>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

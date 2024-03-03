@@ -129,3 +129,129 @@ end
       <%= button_tag type: :submit, class: "save__botton" do %>
       <%= image_tag "save.png", class:"form__btn" %>
     <% end %> 
+
+
+
+
+
+
+
+
+
+
+
+
+class SeatingsController < ApplicationController
+  before_action :authenticate_user!, except: [:index]
+  before_action :set_pattern, only: [:new, :create]
+
+  def index
+  end
+
+  def select_pattern
+  
+    puts "selectアクション"
+    render "new#{@pattern}" if ['A', 'B', 'C'].include?(@pattern)
+  end
+
+  def new
+    puts "newアクション"
+    @seating_guest = SeatingGuest.new
+    select_pattern
+  end
+
+  def create
+    puts "createアクションやったよ"
+    @seating_guest = SeatingGuest.new(seating_guest_params)
+
+    if @seating_guest.save
+      redirect_to root_path
+    else
+      render "new#{@seating_guest.pattern}"
+    end
+  end
+
+  def show
+    puts "seating.showアクション実行"
+    @seating_guest = SeatingGuest.new(pattern: params[:pattern], table_code: params[:table_code], 
+    position_code: params[:position_code], user_id: params[:user_id], name: params[:name])
+    render "show#{@seating_guest.pattern}"
+  end
+
+  private
+
+
+
+
+
+  def seating_guest_params
+    params.require(:seating_guest).permit(:pattern, :table_code, :position_code, :name, guest: {}).merge(user_id: current_user.id)
+  end
+
+
+
+
+  def set_pattern
+    @pattern = params[:pattern]
+  end
+end
+
+
+
+
+
+
+
+
+<% ('A'..'C').each do |table_code| %>
+  <!-- テーブルコードごとに繰り返し処理を行います -->
+  <div class="block-container">
+    <!-- ブロックコンテナの開始 -->
+
+    <div class="name-containerLeft">
+      <!-- 左側の名前コンテナの開始 -->
+      <% (1..3).each do |index| %>
+        <!-- インデックス（1から3）ごとに繰り返し処理を行います -->
+        <div class="name-containerLeft">
+          <!-- 左側の名前コンテナの開始 -->
+          <%= f.text_area "guests[#{table_code}][#{index}][name]", class: "name-input", placeholder: "Guest #{index}" %>
+          <!-- テキストエリアの生成。guestsハッシュ内の各要素に対して名前、テーブルコード、ポジションコードを設定 -->
+          <%= f.hidden_field "guests[#{table_code}][#{index}][table_code]", value: table_code %>
+          <!-- 隠しフィールドの生成。テーブルコードを設定 -->
+          <%= f.hidden_field "guests[#{table_code}][#{index}][position_code]", value: index %>
+          <!-- 隠しフィールドの生成。ポジションコードを設定 -->
+        </div>
+      <% end %>
+      <!-- インデックス繰り返し処理の終了 -->
+    </div>
+    <!-- 左側の名前コンテナの終了 -->
+
+    <div class="square">
+      <!-- 正方形コンテナの開始 -->
+      <div class="square-num"><%= table_code %></div>
+      <!-- テーブルコードを表示する正方形内の数字の表示 -->
+    </div>
+    <!-- 正方形コンテナの終了 -->
+
+    <div class="name-containerRight">
+      <!-- 右側の名前コンテナの開始 -->
+      <% (4..6).each do |index| %>
+        <!-- インデックス（4から6）ごとに繰り返し処理を行います -->
+        <div class="name-containerLeft">
+          <!-- 左側の名前コンテナの開始 -->
+          <%= f.text_area "guests[#{table_code}][#{index}][name]", class: "name-input", placeholder: "Guest #{index}" %>
+          <!-- テキストエリアの生成。guestsハッシュ内の各要素に対して名前、テーブルコード、ポジションコードを設定 -->
+          <%= f.hidden_field "guests[#{table_code}][#{index}][table_code]", value: table_code %>
+          <!-- 隠しフィールドの生成。テーブルコードを設定 -->
+          <%= f.hidden_field "guests[#{table_code}][#{index}][position_code]", value: index %>
+          <!-- 隠しフィールドの生成。ポジションコードを設定 -->
+        </div>
+      <% end %>
+      <!-- インデックス繰り返し処理の終了 -->
+    </div>
+    <!-- 右側の名前コンテナの終了 -->
+
+  </div>
+  <!-- ブロックコンテナの終了 -->
+<% end %>
+<!-- テーブルコード繰り返し処理の終了 -->
