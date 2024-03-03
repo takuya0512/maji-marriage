@@ -1,9 +1,10 @@
 class SeatingGuest
   include ActiveModel::Model
-  attr_accessor :pattern, :table_code, :position_code, :user_id, :name
+  attr_accessor :pattern, :table_code, :position_code, :user_id, :name, :seating_id
 
   with_options presence: true do
     validates :user_id
+    validates :pattern
   end
 
   def save

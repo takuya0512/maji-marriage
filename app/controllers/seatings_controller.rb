@@ -6,19 +6,15 @@ class SeatingsController < ApplicationController
   end
 
   def select_pattern
-  
-    puts "selectアクション"
     render "new#{@pattern}" if ['A', 'B', 'C'].include?(@pattern)
   end
 
   def new
-    puts "newアクション"
     @seating_guest = SeatingGuest.new
     select_pattern
   end
 
   def create
-    puts "createアクションやったよ"
     @seating_guest = SeatingGuest.new(seating_guest_params)
 
     if @seating_guest.save
@@ -29,13 +25,34 @@ class SeatingsController < ApplicationController
   end
 
   def show
-    @seating_guest = SeatingGuestForm.find(params[:id])
+    puts "seating.showアクション実行"
+
+
+
+
+    @seating = Seating.find_by(table_code: params[:table_code], position_code: params[:position_code])
+
+    # SeatingモデルからGuestモデルをクエリ
+    @guests = @seating.guests if @seating
+
+    # Viewにデータを渡す
+    render :show
+
+
+
+    # @seating = Seating.find(params[:id])
+
+    # @seating_guest = SeatingGuest.new(pattern: params[:pattern], table_code: params[:table_code], 
+    # position_code: params[:position_code], user_id: params[:user_id], name: params[:name])
+    # render "show#{@seating_guest.pattern}"
   end
+
 
   private
 
   def seating_guest_params
-    params.require(:seating_guest).permit(:pattern, :table_code, :position_code, :name).merge(user_id: current_user.id)
+    params.require(:seating_guest).permit(:pattern, :table_code, :position_code, :name)
+    .merge(user_id: current_user.id)
   end
 
   def set_pattern

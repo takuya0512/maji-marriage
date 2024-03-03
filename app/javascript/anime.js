@@ -25,7 +25,6 @@ const anime = () => {
 
 const isTopPage = () => {
   // トップページの条件に合わせて判定する
-  // 例えば、URLや特定のDOM要素の有無など
   return window.location.pathname === '/' || document.getElementById('topPageIdentifier');
 };
 
