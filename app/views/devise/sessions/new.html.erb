@@ -1,27 +1,22 @@
-<h2>Log in</h2>
-
-<div class="main">
-  <div class="inner">
-    <div class="form__wrapper">
-      <h2 class="page-heading">ユーザーログイン</h2>
+<div class="sign-main">
+  <div class="sign-inner">
+      <h1 class="page-heading">SIGN IN</h1>
        
         <%= form_with model: @user, url: user_session_path, local: true do |f| %>
 
         <div class="field">
-          <%= f.label :email, "メールアドレス" %><br />
-          <%= f.email_field :email, id:"user_email", autofocus: true, autocomplete: "email" %>
+          <%= f.email_field :email, class: "sign-input", id:"user_email", autofocus: true, autocomplete: "email", placeholder:"EMAIL" %>
         </div>
 
         <div class="field">
-          <%= f.label :password, "パスワード（6文字以上）" %><br />
-          <%= f.password_field :password, id:"user_password", autocomplete: "current-password" %>
+          <%= f.password_field :password, class: "sign-input", id:"user_password", autocomplete: "new-password",placeholder:"PASSWORD（6 or more）"%>
         </div>
 
         <div class="actions">
-          <%= f.submit "ログイン", class: :form__btn %>
+          <%= f.submit "SAVE", class: :sign__btn  %>
         </div>
+      </div>
       <% end %>
-    </div>
   </div>
 </div>
 
