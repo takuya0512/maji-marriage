@@ -1,24 +1,22 @@
-<h2>Sign up</h2>
-
-<div class="main">
-  <div class="inner">
-    <div class="form__wrapper">
-      <h2 class="page-heading">ユーザー新規登録</h2>
+<div class="sign-main">
+  <div class="sign-inner">
+      <h1 class="page-heading">SIGN UP</h1>
 
         <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
 
+      <div class="form__wrapper">
         <div class="field">
-          <%= f.label :email, "メールアドレス" %><br />
+          <%= f.label :email, "EMAIL" %><br />
           <%= f.email_field :email, id:"user_email", autofocus: true, autocomplete: "email" %>
         </div>
 
         <div class="field">
-          <%= f.label :password, "パスワード（6文字以上）" %><br />
+          <%= f.label :password, "PASSWORD（6 or more）" %><br />
           <%= f.password_field :password, id:"user_password", autocomplete: "new-password" %>
         </div>
 
         <div class="field">
-          <%= f.label :password_confirmation, "パスワード再入力" %><br />
+          <%= f.label :password_confirmation, "PASSWORD（Re type）" %><br />
           <%= f.password_field :password_confirmation, id:"user_password_confirmation", autocomplete: "new-password" %>
         </div>
 
@@ -33,9 +31,10 @@
         </div>
 
         <div class="actions">
-          <%= f.submit "新規登録", class: :form__btn  %>
+          <%= f.submit "新規登録", class: :sign__btn  %>
         </div>
+      </div>
+      
       <% end %>
-    </div>
   </div>
 </div>
