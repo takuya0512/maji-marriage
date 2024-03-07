@@ -6,32 +6,27 @@
 
       <div class="form__wrapper">
         <div class="field">
-          <%= f.label :email, "EMAIL" %><br />
-          <%= f.email_field :email, id:"user_email", autofocus: true, autocomplete: "email" %>
+          <%= f.text_field :bride, class: "sign-input", id:"bride", placeholder:"Bride" %>
         </div>
 
         <div class="field">
-          <%= f.label :password, "PASSWORD（6 or more）" %><br />
-          <%= f.password_field :password, id:"user_password", autocomplete: "new-password" %>
+          <%= f.text_field :groom, class: "sign-input", id:"groom", placeholder:"Groom"%>
+        </div>
+        
+        <div class="field">
+          <%= f.email_field :email, class: "sign-input", id:"user_email", autofocus: true, autocomplete: "email", placeholder:"EMAIL" %>
         </div>
 
         <div class="field">
-          <%= f.label :password_confirmation, "PASSWORD（Re type）" %><br />
-          <%= f.password_field :password_confirmation, id:"user_password_confirmation", autocomplete: "new-password" %>
+          <%= f.password_field :password, class: "sign-input", id:"user_password", autocomplete: "new-password",placeholder:"PASSWORD（6 or more）"%>
         </div>
 
         <div class="field">
-          <%= f.label :bride, "Bride" %><br />
-          <%= f.text_field :bride, id:"bride" %>
-        </div>
-
-        <div class="field">
-          <%= f.label :groom, "Groom" %><br />
-          <%= f.text_field :groom, id:"groom" %>
+          <%= f.password_field :password_confirmation, class: "sign-input", id:"user_password_confirmation", autocomplete: "new-password",placeholder:"PASSWORD（Re type）" %>
         </div>
 
         <div class="actions">
-          <%= f.submit "新規登録", class: :sign__btn  %>
+          <%= f.submit "SAVE", class: :sign__btn  %>
         </div>
       </div>
       
