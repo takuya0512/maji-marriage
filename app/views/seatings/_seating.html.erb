@@ -10,14 +10,10 @@
     <% (1..6).each do |position_code| %>
       <div class="position">
         <h5>ポジション <%= position_code %></h5>
-        <% guest = @seating.guest_at(table_code, position_code) %>
-
-        <% if guest %>
-          <p><strong>ゲスト名:</strong> <%= guest.name %></p>
-        <% else %>
-          <p><em>ゲスト未設定</em></p>
-        <% end %>
+        
       </div>
     <% end %>
   </div>
+
+  
 <% end %>
