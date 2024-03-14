@@ -1,1 +1,47 @@
-<h2>こんにちは</h2>
+<%= render partial: "shared/header" %>
+
+<div class="seating-main">
+  <%= render partial: "shared/top_paragraph" %>
+
+  <%= form_with(model: @seating_guest, url: seatings_path, method: :post, local: true) do |f| %>
+
+  <%# 1列目 %>
+  <div class="paragraph">
+    <% ('A'..'B').each do |table_code| %>
+      <div class="block-container">
+        <div class="name-containerLeft">
+          <% (1..2).each do |position_code| %>
+            <div class="name-containerLeft">
+              <%= f.text_area "[#{table_code}][#{position_code}][name]", class: "name-input", placeholder: "Guest #{position_code}" %>
+              <%= f.hidden_field "[#{table_code}][#{position_code}][table_code]", value: table_code %>
+              <%= f.hidden_field "[#{table_code}][#{position_code}][position_code]", value: position_code %>
+            </div>
+          <% end %>
+        </div>
+        <div class="square">
+          <div class="square-num"><%= table_code %></div>
+        </div>
+        <div class="name-containerRight">
+          <% (3..4).each do |index| %>
+            <div class="name-containerLeft">
+              <%= f.text_area "[#{table_code}][#{index}][name]", class: "name-input", placeholder: "Guest #{index}" %>
+              <%= f.hidden_field "[#{table_code}][#{index}][table_code]", value: table_code %>
+              <%= f.hidden_field "[#{table_code}][#{index}][position_code]", value: index %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+ 
+
+  <%# 保存ボタン %>
+  <div class="bottom-paragraph">
+    <%= f.hidden_field :pattern, value: @pattern %>
+    <div class= "save__botton" >
+      <%= image_submit_tag("save.png", class: 'form__btn') %>
+    </div>
+  </div>
+  <% end %>
+</div>

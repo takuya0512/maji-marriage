@@ -66,8 +66,6 @@ https://maji-marriage.onrender.com
 | Column        | Type       | Options                        |
 | ------------  | ---------- | -------------------------      | 
 | pattern       | string     | null: false                    |
-| table_code    | string     | null: false                    |
-| position_code | string     | null: false                    |
 | user          | references | null: false, foreign_key: true |
 
 ### Association
@@ -80,6 +78,8 @@ https://maji-marriage.onrender.com
 | Column        | Type       | Options                        |
 | ------------  | ---------- | ------------------------------ | 
 | name          | string     |                                |
+| table_code    | string     | null: false                    |
+| position_code | string     | null: false                    |
 | seating       | references | null: false, foreign_key: true |
 
 ### Association
