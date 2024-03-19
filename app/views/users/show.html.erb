@@ -12,6 +12,21 @@
         <ul>
           <% @seatings.each do |seating| %>
             <li><%= link_to "#{seating.pattern} の席次表", seating_path(seating) %></li>
+                      <span><%= image_tag 'arrow_top.png' %></span>
+                        <ul class="more_list">
+                          <li>
+                            <%= link_to '詳細', seating_path(seating.id) %>
+                          </li>
+                          <% if user_signed_in? && current_user.id == seating.user_id %>
+                            <li>
+                              <%# <%= link_to '編集', edit_tweet_path(tweet.id) %> 
+                            </li>
+                            <li>
+                              <%# <%= link_to '削除', tweet_path(tweet.id), data: { turbo_method: :delete } %> %>
+                            </li>
+                          <% end %>
+                        </ul>
+                        </div>
           <% end %>
         </ul>
       <% else %>

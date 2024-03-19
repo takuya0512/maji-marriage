@@ -25,8 +25,10 @@ class SeatingsController < ApplicationController
   end
 
   def show
-    @seating = Seating.find(params[:id]) # Seating レコードを取得
+    @seating = Seating.find(params[:id])
     @guests = @seating.guests
+
+    
   end
 
   private
