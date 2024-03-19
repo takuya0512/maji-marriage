@@ -255,3 +255,182 @@ end
   <!-- ブロックコンテナの終了 -->
 <% end %>
 <!-- テーブルコード繰り返し処理の終了 -->
+
+
+
+
+
+
+
+
+<%= render partial: "shared/header" %>
+
+<div class="seating-main">
+  <%= render partial: "shared/top_paragraph" %>
+
+  <%= form_with(model: @seating_guest, url: seatings_path, method: :post, local: true) do |f| %>
+
+  <%# 1列目 %>
+  <div class="paragraph">
+    <% ('A'..'C').each do |table_code| %>
+      <div class="block-container">
+        <div class="name-containerLeft">
+          <% (1..3).each do |position_code| %>
+            <div class="name-containerLeft">
+              <%= f.text_area "guests[#{table_code}][#{position_code}][name]", class: "name-input", placeholder: "Guest #{position_code}" %>
+              <%= f.hidden_field "guests[#{table_code}][#{position_code}][table_code]", value: table_code %>
+              <%= f.hidden_field "guests[#{table_code}][#{position_code}][position_code]", value: position_code %>
+            </div>
+          <% end %>
+        </div>
+        <div class="square">
+          <div class="square-num"><%= table_code %></div>
+        </div>
+        <div class="name-containerRight">
+          <% (4..6).each do |position_code| %>
+            <div class="name-containerLeft">
+              <%= f.text_area "guests[#{table_code}][#{position_code}][name]", class: "name-input", placeholder: "Guest #{position_code}" %>
+              <%= f.hidden_field "guests[#{table_code}][#{position_code}][table_code]", value: table_code %>
+              <%= f.hidden_field "guests[#{table_code}][#{position_code}][position_code]", value: position_code %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <%# 2列目 %>
+  <div class="paragraph">
+    <% ('D'..'E').each do |table_code| %>
+      <div class="block-container">
+        <div class="name-containerLeft">
+          <% (1..3).each do |position_code| %>
+            <div class="name-containerLeft">
+              <%= f.text_area "guests[#{table_code}][#{position_code}][name]", class: "name-input", placeholder: "Guest #{position_code}" %>
+              <%= f.hidden_field "guests[#{table_code}][#{position_code}][table_code]", value: table_code %>
+              <%= f.hidden_field "guests[#{table_code}][#{position_code}][position_code]", value: position_code %>
+            </div>
+          <% end %>
+        </div>
+        <div class="square">
+          <div class="square-num"><%= table_code %></div>
+        </div>
+        <div class="name-containerRight">
+          <% (4..6).each do |position_code| %>
+            <div class="name-containerLeft">
+              <%= f.text_area "guests[#{table_code}][#{position_code}][name]", class: "name-input", placeholder: "Guest #{position_code}" %>
+              <%= f.hidden_field "guests[#{table_code}][#{position_code}][table_code]", value: table_code %>
+              <%= f.hidden_field "guests[#{table_code}][#{position_code}][position_code]", value: position_code %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <%# 3列目 %>
+  <div class="paragraph">
+    <% ('F'..'H').each do |table_code| %>
+      <div class="block-container">
+        <div class="name-containerLeft">
+          <% (1..3).each do |position_code| %>
+            <div class="name-containerLeft">
+              <%= f.text_area "guests[#{table_code}][#{position_code}][name]", class: "name-input", placeholder: "Guest #{position_code}" %>
+              <%= f.hidden_field "guests[#{table_code}][#{position_code}][table_code]", value: table_code %>
+              <%= f.hidden_field "guests[#{table_code}][#{position_code}][position_code]", value: position_code %>
+            </div>
+          <% end %>
+        </div>
+        <div class="square">
+          <div class="square-num"><%= table_code %></div>
+        </div>
+        <div class="name-containerRight">
+          <% (4..6).each do |position_code| %>
+            <div class="name-containerLeft">
+              <%= f.text_area "guests[#{table_code}][#{position_code}][name]", class: "name-input", placeholder: "Guest #{position_code}" %>
+              <%= f.hidden_field "guests[#{table_code}][#{position_code}][table_code]", value: table_code %>
+              <%= f.hidden_field "guests[#{table_code}][#{position_code}][position_code]", value: position_code %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <%# 保存ボタン %>
+  <div class="bottom-paragraph">
+    <%= f.hidden_field :pattern, value: @pattern %>
+    <div class= "save__botton" >
+      <%= image_submit_tag("save.png", class: 'form__btn') %>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+
+
+
+
+
+
+class SeatingsController < ApplicationController
+  before_action :authenticate_user!, except: [:index]
+  before_action :set_pattern, only: [:new, :create]
+
+  def index
+  end
+
+  def select_pattern
+    render "new#{@pattern}" if ['A', 'B', 'C'].include?(@pattern)
+  end
+
+  def new
+    @seating_guest = SeatingGuest.new
+    select_pattern
+  end
+
+  def create
+    @seating_guest = SeatingGuest.new(seating_guest_params)
+
+    if @seating_guest.save
+      redirect_to root_path
+    else
+      render "new#{@seating_guest.pattern}"
+    end
+  end
+
+  def show
+    @seating = Seating.find(params[:id]) # Seating レコードを取得
+    @guests = @seating.guests
+  end
+
+  private
+
+  # def seating_guest_params
+  #   params.require(:seating_guest).permit(:pattern, :seating_id)
+  #   .merge(user_id: current_user.id)
+  
+  #   # name1 から name72 までを一括で permit する
+  #   (1..72).each do |n|
+  #     permitted_params["name#{n}"] = params[:seating_guest]["name#{n}"]
+  #   end
+  
+  #   permitted_params
+  # end
+
+  def seating_guest_params
+    # Strong Parameters を使って許可するパラメーターを指定する
+    permitted_params = params.require(:seating_guest).permit(:pattern)
+  
+    # name1 から name72 までを一括で permit する
+    (1..72).each do |n|
+      permitted_params["name#{n}"] = params[:seating_guest]["name#{n}"]
+    end
+  
+    permitted_params
+  end
+
+  def set_pattern
+    @pattern = params[:pattern]
+  end
+end

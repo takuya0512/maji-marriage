@@ -1,19 +1,12 @@
-<!-- app/views/seatings/_seating.html.erb -->
+<!-- views/seatings/show.html.erb -->
 
-<h2><%= @seating.pattern %> の席次表</h2>
+<div class="seating-main">
+  <!-- 席次表の表示コード（省略） -->
 
-<!-- 席次表の表示ロジックをここに追加 -->
-<% ('A'..'J').each do |table_code| %>
-  <div class="table-container">
-    <h4><%= table_code %> テーブル</h4>
-
-    <% (1..6).each do |position_code| %>
-      <div class="position">
-        <h5>ポジション <%= position_code %></h5>
-        
-      </div>
-    <% end %>
-  </div>
-
-  
-<% end %>
+  <!-- 名前を表示 -->
+  <% @guests.each do |guest| %>
+    <div>
+      <%= guest.name %>
+    </div>
+  <% end %>
+</div>
