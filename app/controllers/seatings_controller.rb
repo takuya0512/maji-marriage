@@ -26,9 +26,7 @@ class SeatingsController < ApplicationController
 
   def show
     @seating = Seating.find(params[:id])
-    @guests = @seating.guests
-
-    
+    @seating_guest = @seating.guest 
   end
 
   private
