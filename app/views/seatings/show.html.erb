@@ -6,159 +6,153 @@
 
   <%= form_with(model: @seating_guest, url: seatings_path, method: :post, local: true) do |f| %>
 
-  <% if user_signed_in? && current_user.id == @seating.user_id %>
-    <div class="prototype__manage">
-      <%= link_to "編集する", edit_seating_path(@seating), class: :prototype__btn %>
-      <%= link_to "削除する", seating_path(@seating), data: { turbo_method: :delete }, class: :prototype__btn %>
-    </div>
-  <% end %>
-
-
-
   <%# 1列目 %>
   <div class="paragraph">
     <div class="block-container">
       <div class ="name-containerLeft">
-        <%= f.text_field :name1, class: "name-input" %>
-        <%= f.text_field :name2, class: "name-input" %>
-        <%= f.text_field :name3, class: "name-input" %>
+        <%= @seating_guest.name1 %><br>
+        <%= @seating_guest.name2 %><br>
+        <%= @seating_guest.name3 %><br>
       </div>
         <div class=square>
           <div class="square-num">A</div>
         </div>
       <div class ="name-containerRight">
-        <%= f.text_field :name4, class: "name-input" %>
-        <%= f.text_field :name5, class: "name-input" %>
-        <%= f.text_field :name6, class: "name-input" %>
+        <%= @seating_guest.name4 %><br>
+        <%= @seating_guest.name5 %><br>
+        <%= @seating_guest.name6 %><br>
       </div>
     </div>
     
     <div class="block-container">
       <div class ="name-containerLeft">
-        <%= f.text_field :name7, class: "name-input" %>
-        <%= f.text_field :name8, class: "name-input" %>
-        <%= f.text_field :name9, class: "name-input" %>
+        <%= @seating_guest.name7 %><br>
+        <%= @seating_guest.name8 %><br>
+        <%= @seating_guest.name9 %><br>
       </div>
-        <div class=square>
-          <div class="square-num">B</div>
-        </div>
+      <div class=square>
+        <div class="square-num">B</div>
+      </div>
       <div class ="name-containerRight">
-        <%= f.text_field :name10, class: "name-input" %>
-        <%= f.text_field :name11, class: "name-input" %>
-        <%= f.text_field :name12, class: "name-input" %>
+        <%= @seating_guest.name10 %><br>
+        <%= @seating_guest.name11 %><br>
+        <%= @seating_guest.name12 %><br>
       </div>
     </div>
     
     <div class="block-container">
       <div class ="name-containerLeft">
-        <%= f.text_field :name13, class: "name-input" %>
-        <%= f.text_field :name14, class: "name-input" %>
-        <%= f.text_field :name15, class: "name-input" %>
+        <%= @seating_guest.name13 %><br>
+        <%= @seating_guest.name14 %><br>
+        <%= @seating_guest.name15 %><br>
       </div>
-        <div class=square>
-          <div class="square-num">C</div>
-        </div>
+      <div class=square>
+        <div class="square-num">C</div>
+      </div>
       <div class ="name-containerRight">
-        <%= f.text_field :name16, class: "name-input" %>
-        <%= f.text_field :name17, class: "name-input" %>
-        <%= f.text_field :name18, class: "name-input" %>
+        <%= @seating_guest.name16 %><br>
+        <%= @seating_guest.name17 %><br>
+        <%= @seating_guest.name18 %><br>
       </div>
     </div>
   </div>
-
 
   <%# 2列目 %>
   <div class="paragraph">
     <div class="block-container">
       <div class ="name-containerLeft">
-        <%= f.text_field :name19, class: "name-input" %>
-        <%= f.text_field :name20, class: "name-input" %>
-        <%= f.text_field :name21, class: "name-input" %>
+        <%= @seating_guest.name19 %><br>
+        <%= @seating_guest.name20 %><br>
+        <%= @seating_guest.name21 %><br>
       </div>
-        <div class=square>
-          <div class="square-num">D</div>
-        </div>
+      <div class=square>
+        <div class="square-num">D</div>
+      </div>
       <div class ="name-containerRight">
-        <%= f.text_field :name22, class: "name-input" %>
-        <%= f.text_field :name23, class: "name-input" %>
-        <%= f.text_field :name24, class: "name-input" %>
+        <%= @seating_guest.name22 %><br>
+        <%= @seating_guest.name23 %><br>
+        <%= @seating_guest.name24 %><br>
       </div>
     </div>
-    
+
     <div class="block-container">
       <div class ="name-containerLeft">
-        <%= f.text_field :name25, class: "name-input" %>
-        <%= f.text_field :name26, class: "name-input" %>
-        <%= f.text_field :name27, class: "name-input" %>
+        <%= @seating_guest.name25 %><br>
+        <%= @seating_guest.name26 %><br>
+        <%= @seating_guest.name27 %><br>
       </div>
-        <div class=square>
-          <div class="square-num">E</div>
-        </div>
+      <div class=square>
+        <div class="square-num">E</div>
+      </div>
       <div class ="name-containerRight">
-        <%= f.text_field :name28, class: "name-input" %>
-        <%= f.text_field :name29, class: "name-input" %>
-        <%= f.text_field :name30, class: "name-input" %>
+        <%= @seating_guest.name28 %><br>
+        <%= @seating_guest.name29 %><br>
+        <%= @seating_guest.name30 %><br>
       </div>
     </div>
   </div>
 
   <%# 3列目 %>
   <div class="paragraph">
-    <div class="block-container">
-      <div class ="name-containerLeft">
-        <%= f.text_field :name31, class: "name-input" %>
-        <%= f.text_field :name32, class: "name-input" %>
-        <%= f.text_field :name33, class: "name-input" %>
-      </div>
+    <div class="paragraph">
+      <div class="block-container">
+        <div class ="name-containerLeft">
+          <%= @seating_guest.name31 %><br>
+          <%= @seating_guest.name32 %><br>
+          <%= @seating_guest.name33 %><br>
+        </div>
         <div class=square>
           <div class="square-num">F</div>
         </div>
-      <div class ="name-containerRight">
-        <%= f.text_field :name34, class: "name-input" %>
-        <%= f.text_field :name35, class: "name-input" %>
-        <%= f.text_field :name36, class: "name-input" %>
+        <div class ="name-containerRight">
+          <%= @seating_guest.name34 %><br>
+          <%= @seating_guest.name35 %><br>
+          <%= @seating_guest.name36 %><br>
+        </div>
       </div>
-    </div>
 
-    <div class="block-container">
-      <div class ="name-containerLeft">
-        <%= f.text_field :name37, class: "name-input" %>
-        <%= f.text_field :name38, class: "name-input" %>
-        <%= f.text_field :name39, class: "name-input" %>
-      </div>
+      <div class="block-container">
+        <div class ="name-containerLeft">
+          <%= @seating_guest.name37 %><br>
+          <%= @seating_guest.name38 %><br>
+          <%= @seating_guest.name39 %><br>
+        </div>
         <div class=square>
           <div class="square-num">G</div>
         </div>
-      <div class ="name-containerRight">
-        <%= f.text_field :name40, class: "name-input" %>
-        <%= f.text_field :name41, class: "name-input" %>
-        <%= f.text_field :name42, class: "name-input" %>
+        <div class ="name-containerRight">
+          <%= @seating_guest.name40 %><br>
+          <%= @seating_guest.name41 %><br>
+          <%= @seating_guest.name42 %><br>
+        </div>
       </div>
-    </div>
-    
-    <div class="block-container">
-      <div class ="name-containerLeft">
-        <%= f.text_field :name43, class: "name-input" %>
-        <%= f.text_field :name44, class: "name-input" %>
-        <%= f.text_field :name45, class: "name-input" %>
-      </div>
+      
+      <div class="block-container">
+        <div class ="name-containerLeft">
+          <%= @seating_guest.name43 %><br>
+          <%= @seating_guest.name44 %><br>
+          <%= @seating_guest.name45 %><br>
+        </div>
         <div class=square>
           <div class="square-num">H</div>
         </div>
-      <div class ="name-containerRight">
-        <%= f.text_field :name46, class: "name-input" %>
-        <%= f.text_field :name47, class: "name-input" %>
-        <%= f.text_field :name48, class: "name-input" %>
+        <div class ="name-containerRight">
+          <%= @seating_guest.name46 %><br>
+          <%= @seating_guest.name47 %><br>
+          <%= @seating_guest.name48 %><br>
+        </div>
       </div>
-    </div>
   </div>
+</div>
 
   <%# 保存ボタン %>
   <div class="bottom-paragraph">
-    <%= f.hidden_field :pattern, value: @pattern %>
-    <div class= "save__botton" >
-      <%= image_submit_tag("save.png", class: 'form__btn') %>
-    </div>
+    <% if user_signed_in? && current_user.id == @seating.user_id %>
+      <div class="prototype__manage">
+        <%= link_to "編集する", edit_seating_path(@seating), class: :prototype__btn %>
+        <%= link_to "削除する", seating_path(@seating), data: { turbo_method: :delete }, class: :prototype__btn %>
+      </div>
+    <% end %>
   </div>
   <% end %>
 </div>
