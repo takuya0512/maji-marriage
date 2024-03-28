@@ -1,149 +1,527 @@
-
 <%= render partial: "shared/header" %>
 
-<div class="seating-main">
+
   <%= render partial: "shared/top_paragraph" %>
 
   <%= form_with(model: @seating_guest, url: seatings_path, method: :post, local: true) do |f| %>
 
-  <%# 1列目 %>
-  <div class="paragraph">
-    <div class="block-container">
-      <div class ="name-containerLeft">
-        <%= @seating_guest.name1 %><br>
-        <%= @seating_guest.name2 %><br>
-        <%= @seating_guest.name3 %><br>
-      </div>
-        <div class=square>
-          <div class="square-num">A</div>
+<% case @seating.pattern %>
+  <% when 'A' %>
+    <%# 1列目 %>
+    <div class="seating-main">
+      <div class="paragraph">
+        <div class="block-container">
+          <div class ="edit-containerLeft">
+            <%= @seating_guest.name1 %><br>
+            <%= @seating_guest.name2 %><br>
+            <%= @seating_guest.name3 %><br>
+          </div>
+            <div class=square>
+              <div class="square-num">A</div>
+            </div>
+          <div class ="edit-containerRight">
+            <%= @seating_guest.name4 %><br>
+            <%= @seating_guest.name5 %><br>
+            <%= @seating_guest.name6 %><br>
+          </div>
         </div>
-      <div class ="name-containerRight">
-        <%= @seating_guest.name4 %><br>
-        <%= @seating_guest.name5 %><br>
-        <%= @seating_guest.name6 %><br>
+        
+        <div class="block-container">
+          <div class ="edit-containerLeft">
+            <%= @seating_guest.name7 %><br>
+            <%= @seating_guest.name8 %><br>
+            <%= @seating_guest.name9 %><br>
+          </div>
+          <div class=square>
+            <div class="square-num">B</div>
+          </div>
+          <div class ="edit-containerRight">
+            <%= @seating_guest.name10 %><br>
+            <%= @seating_guest.name11 %><br>
+            <%= @seating_guest.name12 %><br>
+          </div>
+        </div>
+        
+        <div class="block-container">
+          <div class ="edit-containerLeft">
+            <%= @seating_guest.name13 %><br>
+            <%= @seating_guest.name14 %><br>
+            <%= @seating_guest.name15 %><br>
+          </div>
+          <div class=square>
+            <div class="square-num">C</div>
+          </div>
+          <div class ="edit-containerRight">
+            <%= @seating_guest.name16 %><br>
+            <%= @seating_guest.name17 %><br>
+            <%= @seating_guest.name18 %><br>
+          </div>
+        </div>
+      </div>
+
+      <%# 2列目 %>
+      <div class="paragraph">
+        <div class="block-container">
+          <div class ="edit-containerLeft">
+            <%= @seating_guest.name19 %><br>
+            <%= @seating_guest.name20 %><br>
+            <%= @seating_guest.name21 %><br>
+          </div>
+          <div class=square>
+            <div class="square-num">D</div>
+          </div>
+          <div class ="edit-containerRight">
+            <%= @seating_guest.name22 %><br>
+            <%= @seating_guest.name23 %><br>
+            <%= @seating_guest.name24 %><br>
+          </div>
+        </div>
+
+        <div class="block-container">
+          <div class ="edit-containerLeft">
+            <%= @seating_guest.name25 %><br>
+            <%= @seating_guest.name26 %><br>
+            <%= @seating_guest.name27 %><br>
+          </div>
+          <div class=square>
+            <div class="square-num">E</div>
+          </div>
+          <div class ="edit-containerRight">
+            <%= @seating_guest.name28 %><br>
+            <%= @seating_guest.name29 %><br>
+            <%= @seating_guest.name30 %><br>
+          </div>
+        </div>
+      </div>
+
+      <%# 3列目 %>
+      <div class="paragraph">
+        <div class="block-container">
+          <div class ="edit-containerLeft">
+            <%= @seating_guest.name31 %><br>
+            <%= @seating_guest.name32 %><br>
+            <%= @seating_guest.name33 %><br>
+          </div>
+          <div class=square>
+            <div class="square-num">F</div>
+          </div>
+          <div class ="edit-containerRight">
+            <%= @seating_guest.name34 %><br>
+            <%= @seating_guest.name35 %><br>
+            <%= @seating_guest.name36 %><br>
+          </div>
+        </div>
+
+        <div class="block-container">
+          <div class ="edit-containerLeft">
+            <%= @seating_guest.name37 %><br>
+            <%= @seating_guest.name38 %><br>
+            <%= @seating_guest.name39 %><br>
+          </div>
+          <div class=square>
+            <div class="square-num">G</div>
+          </div>
+          <div class ="edit-containerRight">
+            <%= @seating_guest.name40 %><br>
+            <%= @seating_guest.name41 %><br>
+            <%= @seating_guest.name42 %><br>
+          </div>
+        </div>
+        
+        <div class="block-container">
+          <div class ="edit-containerLeft">
+            <%= @seating_guest.name43 %><br>
+            <%= @seating_guest.name44 %><br>
+            <%= @seating_guest.name45 %><br>
+          </div>
+          <div class=square>
+            <div class="square-num">H</div>
+          </div>
+          <div class ="edit-containerRight">
+            <%= @seating_guest.name46 %><br>
+            <%= @seating_guest.name47 %><br>
+            <%= @seating_guest.name48 %><br>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <% when 'B' %>
+    <%# 1列目 %>
+    <div class="seating-main">
+      <div class="paragraph">
+        <div class="block-container">
+          <div class ="edit-containerLeft">
+            <%= @seating_guest.name1 %><br>
+            <%= @seating_guest.name2 %><br>
+            <%= @seating_guest.name3 %><br>
+          </div>
+            <div class=square>
+              <div class="square-num">A</div>
+            </div>
+          <div class ="edit-containerRight">
+            <%= @seating_guest.name4 %><br>
+            <%= @seating_guest.name5 %><br>
+            <%= @seating_guest.name6 %><br>
+          </div>
+        </div>
+        
+        <div class="block-container">
+          <div class ="edit-containerLeft">
+            <%= @seating_guest.name7 %><br>
+            <%= @seating_guest.name8 %><br>
+            <%= @seating_guest.name9 %><br>
+          </div>
+          <div class=square>
+            <div class="square-num">B</div>
+          </div>
+          <div class ="edit-containerRight">
+            <%= @seating_guest.name10 %><br>
+            <%= @seating_guest.name11 %><br>
+            <%= @seating_guest.name12 %><br>
+          </div>
+        </div>
+        
+        <div class="block-container">
+          <div class ="edit-containerLeft">
+            <%= @seating_guest.name13 %><br>
+            <%= @seating_guest.name14 %><br>
+            <%= @seating_guest.name15 %><br>
+          </div>
+          <div class=square>
+            <div class="square-num">C</div>
+          </div>
+          <div class ="edit-containerRight">
+            <%= @seating_guest.name16 %><br>
+            <%= @seating_guest.name17 %><br>
+            <%= @seating_guest.name18 %><br>
+          </div>
+        </div>
+
+        <div class="block-container">
+          <div class ="edit-containerLeft">
+            <%= @seating_guest.name19 %><br>
+            <%= @seating_guest.name20 %><br>
+            <%= @seating_guest.name21 %><br>
+          </div>
+          <div class=square>
+            <div class="square-num">D</div>
+          </div>
+          <div class ="edit-containerRight">
+            <%= @seating_guest.name22 %><br>
+            <%= @seating_guest.name23 %><br>
+            <%= @seating_guest.name24 %><br>
+          </div>
+        </div>
+      </div>
+
+      <%# 2列目 %>
+      <div class="paragraph">
+        <div class="block-container">
+          <div class ="edit-containerLeft">
+            <%= @seating_guest.name25 %><br>
+            <%= @seating_guest.name26 %><br>
+            <%= @seating_guest.name27 %><br>
+          </div>
+          <div class=square>
+            <div class="square-num">E</div>
+          </div>
+          <div class ="edit-containerRight">
+            <%= @seating_guest.name28 %><br>
+            <%= @seating_guest.name29 %><br>
+            <%= @seating_guest.name30 %><br>
+          </div>
+        </div>
+
+        <div class="block-container">
+          <div class ="edit-containerLeft">
+            <%= @seating_guest.name31 %><br>
+            <%= @seating_guest.name32 %><br>
+            <%= @seating_guest.name33 %><br>
+          </div>
+          <div class=square>
+            <div class="square-num">F</div>
+          </div>
+          <div class ="edit-containerRight">
+            <%= @seating_guest.name34 %><br>
+            <%= @seating_guest.name35 %><br>
+            <%= @seating_guest.name36 %><br>
+          </div>
+        </div>
+      </div>
+
+      <%# 3列目 %>
+      <div class="paragraph">
+        <div class="block-container">
+          <div class ="edit-containerLeft">
+            <%= @seating_guest.name37 %><br>
+            <%= @seating_guest.name38 %><br>
+            <%= @seating_guest.name39 %><br>
+          </div>
+          <div class=square>
+            <div class="square-num">G</div>
+          </div>
+          <div class ="edit-containerRight">
+            <%= @seating_guest.name40 %><br>
+            <%= @seating_guest.name41 %><br>
+            <%= @seating_guest.name42 %><br>
+          </div>
+        </div>
+        
+        <div class="block-container">
+          <div class ="edit-containerLeft">
+            <%= @seating_guest.name43 %><br>
+            <%= @seating_guest.name44 %><br>
+            <%= @seating_guest.name45 %><br>
+          </div>
+          <div class=square>
+            <div class="square-num">H</div>
+          </div>
+          <div class ="edit-containerRight">
+            <%= @seating_guest.name46 %><br>
+            <%= @seating_guest.name47 %><br>
+            <%= @seating_guest.name48 %><br>
+          </div>
+        </div>
+
+        <div class="block-container">
+          <div class ="edit-containerLeft">
+            <%= @seating_guest.name49 %><br>
+            <%= @seating_guest.name50 %><br>
+            <%= @seating_guest.name51 %><br>
+          </div>
+          <div class=square>
+            <div class="square-num">I</div>
+          </div>
+          <div class ="edit-containerRight">
+            <%= @seating_guest.name52 %><br>
+            <%= @seating_guest.name53 %><br>
+            <%= @seating_guest.name54 %><br>
+          </div>
+        </div>
+
+        <div class="block-container">
+          <div class ="edit-containerLeft">
+            <%= @seating_guest.name55 %><br>
+            <%= @seating_guest.name56 %><br>
+            <%= @seating_guest.name57 %><br>
+          </div>
+          <div class=square>
+            <div class="square-num">J</div>
+          </div>
+          <div class ="edit-containerRight">
+            <%= @seating_guest.name58 %><br>
+            <%= @seating_guest.name59 %><br>
+            <%= @seating_guest.name60 %><br>
+          </div>
+        </div>
       </div>
     </div>
     
-    <div class="block-container">
-      <div class ="name-containerLeft">
-        <%= @seating_guest.name7 %><br>
-        <%= @seating_guest.name8 %><br>
-        <%= @seating_guest.name9 %><br>
-      </div>
-      <div class=square>
-        <div class="square-num">B</div>
-      </div>
-      <div class ="name-containerRight">
-        <%= @seating_guest.name10 %><br>
-        <%= @seating_guest.name11 %><br>
-        <%= @seating_guest.name12 %><br>
-      </div>
-    </div>
-    
-    <div class="block-container">
-      <div class ="name-containerLeft">
-        <%= @seating_guest.name13 %><br>
-        <%= @seating_guest.name14 %><br>
-        <%= @seating_guest.name15 %><br>
-      </div>
-      <div class=square>
-        <div class="square-num">C</div>
-      </div>
-      <div class ="name-containerRight">
-        <%= @seating_guest.name16 %><br>
-        <%= @seating_guest.name17 %><br>
-        <%= @seating_guest.name18 %><br>
-      </div>
-    </div>
-  </div>
-
-  <%# 2列目 %>
-  <div class="paragraph">
-    <div class="block-container">
-      <div class ="name-containerLeft">
-        <%= @seating_guest.name19 %><br>
-        <%= @seating_guest.name20 %><br>
-        <%= @seating_guest.name21 %><br>
-      </div>
-      <div class=square>
-        <div class="square-num">D</div>
-      </div>
-      <div class ="name-containerRight">
-        <%= @seating_guest.name22 %><br>
-        <%= @seating_guest.name23 %><br>
-        <%= @seating_guest.name24 %><br>
-      </div>
-    </div>
-
-    <div class="block-container">
-      <div class ="name-containerLeft">
-        <%= @seating_guest.name25 %><br>
-        <%= @seating_guest.name26 %><br>
-        <%= @seating_guest.name27 %><br>
-      </div>
-      <div class=square>
-        <div class="square-num">E</div>
-      </div>
-      <div class ="name-containerRight">
-        <%= @seating_guest.name28 %><br>
-        <%= @seating_guest.name29 %><br>
-        <%= @seating_guest.name30 %><br>
-      </div>
-    </div>
-  </div>
-
-  <%# 3列目 %>
-  <div class="paragraph">
-    <div class="paragraph">
-      <div class="block-container">
-        <div class ="name-containerLeft">
-          <%= @seating_guest.name31 %><br>
-          <%= @seating_guest.name32 %><br>
-          <%= @seating_guest.name33 %><br>
+  <% when 'C' %>
+    <%# 1列目 %>
+    <div class="seating-main">
+      <div class="paragraph">
+        <div class="block-container">
+          <div class ="edit-containerLeft">
+            <%= @seating_guest.name1 %><br>
+            <%= @seating_guest.name2 %><br>
+            <%= @seating_guest.name3 %><br>
+          </div>
+            <div class=square>
+              <div class="square-num">A</div>
+            </div>
+          <div class ="edit-containerRight">
+            <%= @seating_guest.name4 %><br>
+            <%= @seating_guest.name5 %><br>
+            <%= @seating_guest.name6 %><br>
+          </div>
         </div>
-        <div class=square>
-          <div class="square-num">F</div>
+        
+        <div class="block-container">
+          <div class ="edit-containerLeft">
+            <%= @seating_guest.name7 %><br>
+            <%= @seating_guest.name8 %><br>
+            <%= @seating_guest.name9 %><br>
+          </div>
+          <div class=square>
+            <div class="square-num">B</div>
+          </div>
+          <div class ="edit-containerRight">
+            <%= @seating_guest.name10 %><br>
+            <%= @seating_guest.name11 %><br>
+            <%= @seating_guest.name12 %><br>
+          </div>
         </div>
-        <div class ="name-containerRight">
-          <%= @seating_guest.name34 %><br>
-          <%= @seating_guest.name35 %><br>
-          <%= @seating_guest.name36 %><br>
+        
+        <div class="block-container">
+          <div class ="edit-containerLeft">
+            <%= @seating_guest.name13 %><br>
+            <%= @seating_guest.name14 %><br>
+            <%= @seating_guest.name15 %><br>
+          </div>
+          <div class=square>
+            <div class="square-num">C</div>
+          </div>
+          <div class ="edit-containerRight">
+            <%= @seating_guest.name16 %><br>
+            <%= @seating_guest.name17 %><br>
+            <%= @seating_guest.name18 %><br>
+          </div>
+        </div>
+
+        <div class="block-container">
+          <div class ="edit-containerLeft">
+            <%= @seating_guest.name19 %><br>
+            <%= @seating_guest.name20 %><br>
+            <%= @seating_guest.name21 %><br>
+          </div>
+          <div class=square>
+            <div class="square-num">D</div>
+          </div>
+          <div class ="edit-containerRight">
+            <%= @seating_guest.name22 %><br>
+            <%= @seating_guest.name23 %><br>
+            <%= @seating_guest.name24 %><br>
+          </div>
         </div>
       </div>
 
-      <div class="block-container">
-        <div class ="name-containerLeft">
-          <%= @seating_guest.name37 %><br>
-          <%= @seating_guest.name38 %><br>
-          <%= @seating_guest.name39 %><br>
+      <%# 2列目 %>
+      <div class="paragraph">
+        <div class="block-container">
+          <div class ="edit-containerLeft">
+            <%= @seating_guest.name25 %><br>
+            <%= @seating_guest.name26 %><br>
+            <%= @seating_guest.name27 %><br>
+          </div>
+          <div class=square>
+            <div class="square-num">E</div>
+          </div>
+          <div class ="edit-containerRight">
+            <%= @seating_guest.name28 %><br>
+            <%= @seating_guest.name29 %><br>
+            <%= @seating_guest.name30 %><br>
+          </div>
         </div>
-        <div class=square>
-          <div class="square-num">G</div>
+
+        <div class="block-container">
+          <div class ="edit-containerLeft">
+            <%= @seating_guest.name31 %><br>
+            <%= @seating_guest.name32 %><br>
+            <%= @seating_guest.name33 %><br>
+          </div>
+          <div class=square>
+            <div class="square-num">F</div>
+          </div>
+          <div class ="edit-containerRight">
+            <%= @seating_guest.name34 %><br>
+            <%= @seating_guest.name35 %><br>
+            <%= @seating_guest.name36 %><br>
+          </div>
         </div>
-        <div class ="name-containerRight">
-          <%= @seating_guest.name40 %><br>
-          <%= @seating_guest.name41 %><br>
-          <%= @seating_guest.name42 %><br>
+
+        <div class="block-container">
+          <div class ="edit-containerLeft">
+            <%= @seating_guest.name37 %><br>
+            <%= @seating_guest.name38 %><br>
+            <%= @seating_guest.name39 %><br>
+          </div>
+          <div class=square>
+            <div class="square-num">G</div>
+          </div>
+          <div class ="edit-containerRight">
+            <%= @seating_guest.name40 %><br>
+            <%= @seating_guest.name41 %><br>
+            <%= @seating_guest.name42 %><br>
+          </div>
+        </div>
+        
+        <div class="block-container">
+          <div class ="edit-containerLeft">
+            <%= @seating_guest.name43 %><br>
+            <%= @seating_guest.name44 %><br>
+            <%= @seating_guest.name45 %><br>
+          </div>
+          <div class=square>
+            <div class="square-num">H</div>
+          </div>
+          <div class ="edit-containerRight">
+            <%= @seating_guest.name46 %><br>
+            <%= @seating_guest.name47 %><br>
+            <%= @seating_guest.name48 %><br>
+          </div>
         </div>
       </div>
-      
-      <div class="block-container">
-        <div class ="name-containerLeft">
-          <%= @seating_guest.name43 %><br>
-          <%= @seating_guest.name44 %><br>
-          <%= @seating_guest.name45 %><br>
+
+      <%# 3列目 %>
+      <div class="paragraph">
+        <div class="block-container">
+          <div class ="edit-containerLeft">
+            <%= @seating_guest.name49 %><br>
+            <%= @seating_guest.name50 %><br>
+            <%= @seating_guest.name51 %><br>
+          </div>
+          <div class=square>
+            <div class="square-num">I</div>
+          </div>
+          <div class ="edit-containerRight">
+            <%= @seating_guest.name52 %><br>
+            <%= @seating_guest.name53 %><br>
+            <%= @seating_guest.name54 %><br>
+          </div>
         </div>
-        <div class=square>
-          <div class="square-num">H</div>
+
+        <div class="block-container">
+          <div class ="edit-containerLeft">
+            <%= @seating_guest.name55 %><br>
+            <%= @seating_guest.name56 %><br>
+            <%= @seating_guest.name57 %><br>
+          </div>
+          <div class=square>
+            <div class="square-num">J</div>
+          </div>
+          <div class ="edit-containerRight">
+            <%= @seating_guest.name58 %><br>
+            <%= @seating_guest.name59 %><br>
+            <%= @seating_guest.name60 %><br>
+          </div>
         </div>
-        <div class ="name-containerRight">
-          <%= @seating_guest.name46 %><br>
-          <%= @seating_guest.name47 %><br>
-          <%= @seating_guest.name48 %><br>
+
+        <div class="block-container">
+          <div class ="edit-containerLeft">
+            <%= @seating_guest.name61 %><br>
+            <%= @seating_guest.name62 %><br>
+            <%= @seating_guest.name63 %><br>
+          </div>
+          <div class=square>
+            <div class="square-num">K</div>
+          </div>
+          <div class ="edit-containerRight">
+            <%= @seating_guest.name64 %><br>
+            <%= @seating_guest.name65 %><br>
+            <%= @seating_guest.name66 %><br>
+          </div>
+        </div>
+        
+        <div class="block-container">
+          <div class ="edit-containerLeft">
+            <%= @seating_guest.name67 %><br>
+            <%= @seating_guest.name68 %><br>
+            <%= @seating_guest.name69 %><br>
+          </div>
+          <div class=square>
+            <div class="square-num">L</div>
+          </div>
+          <div class ="edit-containerRight">
+            <%= @seating_guest.name70 %><br>
+            <%= @seating_guest.name71 %><br>
+            <%= @seating_guest.name72 %><br>
+          </div>
         </div>
       </div>
-  </div>
-</div>
+    </div>
+  <% end %>
 
   <%# 保存ボタン %>
   <div class="bottom-paragraph">
