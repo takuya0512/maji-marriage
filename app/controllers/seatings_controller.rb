@@ -7,7 +7,7 @@ class SeatingsController < ApplicationController
   end
 
   def select_pattern
-    render "new#{@pattern}" if ['A', 'B', 'C'].include?(@pattern)
+    render "new#{@pattern}" if %w[A B C].include?(@pattern)
   end
 
   def new
@@ -31,22 +31,22 @@ class SeatingsController < ApplicationController
 
   def edit
     @seating_guest = @seating.guest
-    unless current_user.id == @seating.user_id
-      redirect_to root_path
-    end
+    return if current_user.id == @seating.user_id
+
+    redirect_to root_path
   end
 
   def update
-    if @guest.update(seating_guest_params)
+    puts 'アプデ'
+    @seating_guest = @seating.guest
+
+    if @seating_guest.update(seating_guest_params)
       redirect_to root_path
     else
-      puts "失敗"
+      puts '失敗'
       render :edit, status: :unprocessable_entity
     end
   end
-
-
-
 
   def destroy
     seating = Seating.find(params[:id])
@@ -55,9 +55,10 @@ class SeatingsController < ApplicationController
   end
 
   private
-  def set_seating
-    @seating = Seating.find(params[:id])
 
+  def set_seating
+    puts 'set_seating実行'
+    @seating = Seating.find(params[:id])
   end
 
   def seating_guest_params
