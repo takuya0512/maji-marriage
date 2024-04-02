@@ -11,6 +11,7 @@ class SeatingsController < ApplicationController
   end
 
   def new
+    @pattern = params[:pattern] 
     @seating_guest = SeatingGuest.new
     select_pattern
   end
@@ -37,7 +38,7 @@ class SeatingsController < ApplicationController
   end
 
   def update
-    puts 'アプデ'
+    puts 'アプデ前'
     @seating_guest = @seating.guest
 
     if @seating_guest.update(seating_guest_params)
