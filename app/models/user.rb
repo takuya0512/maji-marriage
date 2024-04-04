@@ -6,7 +6,9 @@ class User < ApplicationRecord
 
   has_many :seatings
 
-  validates :groom, presence: true
-  validates :bride, presence: true
-  validates :password, length: { minimum: 6 }
+  with_options presence: true do
+    validates :groom
+    validates :bride
+    validates :password, length: { minimum: 6 }
+  end
 end

@@ -1,6 +1,6 @@
 .sign-main {
   width: 100%;
-  height: 100vh;
+  height: 90%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,4 +41,10 @@
   -4px -4px 5px 0px #fff9,
   7px 7px 20px 0px #0002,
   4px 4px 5px 0px #0001;
+}
+
+.sign_word {
+  font-size: 20px;
+  font-family: serif;
+  margin-left: 10px;
 }
