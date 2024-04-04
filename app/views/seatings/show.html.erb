@@ -233,6 +233,8 @@
           </div>
         </div>
 
+        <div class="block-container"></div>
+
         <div class="block-container">
           <div class ="edit-containerLeft">
             <%= @seating_guest.name31 %><br>
@@ -526,10 +528,8 @@
   <%# 保存ボタン %>
   <div class="bottom-paragraph">
     <% if user_signed_in? && current_user.id == @seating.user_id %>
-      <div class="prototype__manage">
-        <%= link_to "編集する", edit_seating_path(@seating), class: :prototype__btn %>
-        <%= link_to "削除する", seating_path(@seating), data: { turbo_method: :delete }, class: :prototype__btn %>
-      </div>
+        <%= link_to "編集する", edit_seating_path(@seating), class: :edit__btn %>
+        <%= link_to "削除する", seating_path(@seating), data: { turbo_method: :delete }, class: :edit__btn, onclick: "return confirm('本当に削除しますか？');" %>  
     <% end %>
   </div>
   <% end %>

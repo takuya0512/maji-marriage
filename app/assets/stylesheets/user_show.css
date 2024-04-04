@@ -1,0 +1,14 @@
+.user-heading {
+  font-family: serif;
+  font-size: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.user_list {
+  font-family: serif;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}

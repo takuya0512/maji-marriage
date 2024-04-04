@@ -5,6 +5,7 @@
 
   <%= form_with(model: @seating_guest, url: seating_path(@seating_guest), local: true) do |f| %>
 
+
 <% case @seating.pattern %>
   <% when 'A' %>
   <div class="seating-main">
@@ -233,8 +234,6 @@
           <%= f.text_field :name30, class: "name-input",placeholder: "Guest Name" %>
         </div>
       </div>
-
-      <div class="block-container"></div>
 
       <div class="block-container">
         <div class ="name-containerLeft">

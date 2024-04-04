@@ -45,7 +45,12 @@
   height: 120px;
   width: 120px;
   cursor: pointer; 
+  transition: transform 0.3s ease;
 } 
+
+.form__btn:hover {
+  transform: scale(1.2); /* ホバー時の拡大率を指定 */
+}
 
 .paragraph {
   display: flex;
@@ -104,4 +109,31 @@
   border: none;
   outline: none;
   text-align: center; 
+}
+
+
+/* edit */
+.edit__btn{
+  width: 100px;
+  height: 30px;
+  padding: 15px;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.83);
+  font-family: serif;
+  border-radius: 3px;
+  margin: 0 20px;
+  text-align: center;
+}
+
+.edit__btn:hover{
+  color: #fff;
+  background: #464545c6;
+}
+
+.edit-containerLeft, .edit-containerRight {
+  width: 100px;
+  height: 16px;
+  margin-top: 10px;
+  font-size: 14px;
+  font-family: 'HiraMinProN-W3', sans-serif;
 }

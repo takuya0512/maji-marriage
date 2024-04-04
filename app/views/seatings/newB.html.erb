@@ -4,8 +4,8 @@
 
   <%= form_with(model: @seating_guest, url: seatings_path, method: :post, local: true) do |f| %>
 
-  <div class="seating-main">
     <%# 1列目 %>
+    <div class="seating-main">
     <div class="paragraph">
       <div class="block-container">
         <div class ="name-containerLeft">
@@ -91,6 +91,8 @@
         </div>
       </div>
 
+      <div class="block-container"></div>
+      
       <div class="block-container">
         <div class ="name-containerLeft">
           <%= f.text_field :name31, class: "name-input",placeholder: "Guest Name" %>

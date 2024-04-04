@@ -1,7 +1,6 @@
 <%= render partial: "shared/header" %>
 
 <div class="select-main">
-  <%# <div class="pattern-select">式のお日にちはいつですか？</div>  %>
   <div class="video-container">
     <video width="640" height="360" autoplay muted loop class="marriage-video" id="myVideo">
     <source src="/video/marriage.mp4" type="video/mp4">
@@ -14,22 +13,15 @@
   </script>
   
   <div class="select-inner">
-    <%= link_to image_tag("which.png", class:"which-image")%>
-      <div class="select-image">
-          <%= link_to new_seating_path(pattern: 'A'), class: "seat-link" do %>
-            <%= image_tag("seatA.png", class: "seat-image") %>
-            <div class="select-text">Max Guest 48</div>
-          <% end %>
-
-          <%= link_to new_seating_path(pattern: 'B'), class: "seat-link" do %>
-            <%= image_tag("seatB.png", class: "seat-image") %>
-            <div class="select-text">Max Guest 60</div>
-          <% end %>
-
-          <%= link_to new_seating_path(pattern: 'C') ,class: "seat-link" do %>
-            <%= image_tag("seatC.png", class: "seat-image") %>
-            <div class="select-text">Max Guest 72</div>
-          <% end %>
-      </div>
+    <%= link_to image_tag("which.png", class: "which-image") %>
+    <div class="select-image">
+      <% seating_options = { 'A' => 48, 'B' => 60, 'C' => 72 } %>
+      <% seating_options.each do |pattern, max_guest| %>
+        <%= link_to new_seating_path(pattern: pattern), class: "seat-link" do %>
+          <%= image_tag("seat#{pattern}.png", class: "seat-image") %>
+          <div class="select-text">Max Guest <%= max_guest %></div>
+        <% end %>
+      <% end %>
+    </div>
   </div>
-</div>
+</div>  

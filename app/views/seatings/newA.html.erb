@@ -1,11 +1,12 @@
 <%= render partial: "shared/header" %>
 
-<div class="seating-main">
+
   <%= render partial: "shared/top_paragraph" %>
 
   <%= form_with(model: @seating_guest, url: seatings_path, method: :post, local: true) do |f| %>
 
   <%# 1列目 %>
+  <div class="seating-main">
   <div class="paragraph">
     <div class="block-container">
       <div class ="name-containerLeft">

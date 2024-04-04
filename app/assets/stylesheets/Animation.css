@@ -2,9 +2,9 @@
 
 /* スクリーン */
 :root {
-  --animation-duration: 5s; /* アニメーションの時間を変数で定義 */
-  --curtain-color: #000000; /* 幕の色を変数で定義 */
-  --content-color: white; /* コンテンツのテキスト色を変数で定義 */
+  --animation-duration: 5s; 
+  --curtain-color: #000000;
+  --content-color: white; 
 }
 
 .curtain {

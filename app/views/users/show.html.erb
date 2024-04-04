@@ -3,21 +3,19 @@
 <div class="user-main">
   <div class="inner">
     <div class="user__wrapper">
-      <h2 class="page-heading">
+      <h2 class="user-heading">
         <%= @user.groom %>&<%= @user.bride %>さんの席次表
       </h2>
 
       <% if @seatings.any? %>
-        <h3>ユーザーの席次表一覧</h3>
         <ul>
           <% @seatings.each do |seating| %>
-            <li><%= link_to "#{seating.pattern} の席次表", seating_path(seating) %></li>
+            <li class = user_list><%= link_to "パターン#{seating.pattern} ", seating_path(seating) %></li>
           <% end %>
         </ul>
       <% else %>
         <p>まだ席次表がありません。</p>
       <% end %>
-
     </div>
   </div>
 </div>
