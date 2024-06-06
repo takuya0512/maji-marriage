@@ -69,6 +69,7 @@
 #sakura_block .sakura_parts_box img{
   position: absolute;
   z-index: 0; 
+  pointer-events: none; 
 }
 #sakura_block .sakura_parts_box img:nth-child(2n+1){
   width: 13px;/*花びらのサイズ*/
